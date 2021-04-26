@@ -1,0 +1,64 @@
+<% if report.errors %>
+    <ul id="error_explanation">
+    <% report.errors.full_messages.each do |message| %>
+        <li class="text-danger"><%= message %></li>
+    <% end %>
+    </ul>
+<% end %>
+
+<%= form_with model: @report, class: "mx-3", local: true do |f| %>
+  <table class="table  table-hover table-bordered shadow-sm">
+    <tbody>
+        
+      <tr>  
+        <th class="table-success"><%= f.label :student_id %></th>
+        <td><%= f.text_field :student_id, value: @id, class: 'form-control', id: 'report_student_id' %></td>
+      </tr>
+      <tr>  
+        <th class="table-success"><%= f.label :kind %></th>
+        <td><%= f.select :kind, %i[レギュラー 季節講習 追加 その他], {selected: ''}, class: 'form-control', id: 'report_kind' %></td>
+      </tr>
+      <tr>
+        <th class="table-success"><%= f.label :subject %></th>
+        <td><%= f.select :subject, %i[英語 数学 国語 理科 社会 算数 その他], {selected: ''}, class: 'form-control', id: 'report_subject' %></td>
+      </tr>
+      <tr>
+        <th class="table-success"><%= f.label :description %></th>
+        <td><%= f.text_field :description, class: 'form-control', id: 'report_descrition' %></td>
+      </tr>
+      <tr>
+        <th class="table-success"><%= f.label :attendance %></th>
+        <td><%= f.select :attendance, %i[出席 欠席 遅刻], {selected: ''}, class: 'form-control', id: 'report_attendance' %></td>
+      </tr>
+      <tr>
+        <th class="table-success"><%= f.label :homework %></th>
+        <td><%= f.select :homework, %i[〜20％ 〜40％ 〜60％ 〜80％ 〜100％ 忘れた], {selected: '〜60％'}, class: 'form-control', id: 'report_homework' %></td>
+      </tr>
+      <tr>
+        <th class="table-success"><%= f.label :performance %></th>
+        <td><%= f.select :performance, %i[〜20％ 〜40％ 〜60％ 〜80％ 〜100％], {selected: '〜60％'}, class: 'form-control', id: 'report_performance' %></td>
+      </tr>
+      <tr>
+        <th class="table-success"><%= f.label :minitest %></th>
+        <td><%= f.text_area :minitest, rows: 2, class: 'form-control', id: 'report_minitest' %></td>
+      </tr>
+      <tr>
+        <th class="table-success"><%= f.label :comment %></th>
+        <td><%= f.text_area :comment, rows: 5, class: 'form-control', id: 'report_comment' %></td>
+      </tr>
+      <tr>
+        <th class="table-success"><%= f.label :other %></th>
+        <td><%= f.text_area :other, rows: 3, class: 'form-control', id: 'report_other' %></td>
+      </tr>
+      <tr>
+        <th class="table-success"><%= f.label :credit %></th>
+        <td><%= f.text_field :credit, class: 'form-control', id: 'report_credit' %></td>
+      </tr>
+    </tbody>
+  </table> 
+
+  <div class="text-center">
+    <%= f.submit '戻る', name: 'back', class: "btn btn-secondary mr-3" %>
+    <%= f.submit nil, class: "btn btn-primary" %>
+  </div>
+<% end %>

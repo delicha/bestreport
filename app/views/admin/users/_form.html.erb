@@ -1,0 +1,51 @@
+<% if user.errors %>
+    <ul id="error_explanation">
+    <% user.errors.full_messages.each do |message| %>
+        <li class="text-danger"><%= message %></li>
+    <% end %>
+    </ul>
+<% end %>
+
+<%= form_with model: [:admin, @user], class: "mx-3", local: true do |f| %>
+    <table class="table  table-hover table-bordered shadow-sm">
+        <tbody>
+            <tr>
+                <th class="table-danger"><%= f.label :name, '名前' %></th>
+                <td><%= f.text_field :name, class: "form-control" %></td>
+            </tr>
+            <tr>
+                <th class="table-danger"><%= f.label :kana, 'カナ' %></th>
+                <td><%= f.text_field :kana, class: "form-control" %></td>
+            </tr>
+            <tr>
+                <th class="table-danger"><%= f.label :email, 'メールアドレス' %></th>
+                <td><%= f.text_field :email, class: "form-control" %></td>
+            </tr>
+            <tr>
+                <th class="table-danger"><%= f.label :subject, '担当可能教科' %></th>
+                <td><%= f.text_field :subject, class: "form-control" %></td>
+            </tr>
+            <tr>
+                <th class="table-danger"><%= f.label :admin, '管理者権限', class: "form-check-label" %></th>
+                <td>
+                    <%= f.check_box :admin, class: "form-check-input ml-2" %>
+ 
+                </td>
+            </tr>
+            <tr>
+                <th class="table-danger"><%= f.label :password, 'パスワード' %></th>
+                <td><%= f.text_field :password, class: "form-control" %></td>
+            </tr>
+            <tr>
+                <th class="table-danger"><%= f.label :password_confirmation, 'パスワード（確認）' %></th>
+                <td><%= f.text_field :password_confirmation, class: "form-control" %></td>
+            </tr>
+        </tbody>
+    </table> 
+
+
+    <div class="text-center">
+      <%= f.submit '戻る', name: 'back', class: "btn btn-secondary mr-3" %>
+      <%= f.submit '登録する', class: "btn btn-primary" %>
+    </div>
+<% end %>

@@ -1,0 +1,38 @@
+<% if student.errors %>
+    <ul id="error_explanation">
+    <% student.errors.full_messages.each do |message| %>
+        <li class="text-danger"><%= message %></li>
+    <% end %>
+    </ul>
+<% end %>
+
+<%= form_with model: @student, class: "mx-3", local: true do |f| %>
+    <div class="form-group">
+      <%= f.label :name, '名前' %>
+      <%= f.text_field :name, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :kana, 'かな' %>
+      <%= f.text_field :kana, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :email, 'メールアドレス' %>
+      <%= f.text_field :email, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :birthdate, '誕生日' %>
+      <%= f.text_field :birthdate, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :school, '学校' %>
+      <%= f.text_field :school, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :memo, 'メモ' %>
+      <%= f.text_area :memo, class: "form-control" %>
+    </div>
+    <div>
+      <%= f.submit '戻る', name: 'back', class: "btn btn-secondary mr-3" %>
+      <%= f.submit '登録する', class: "btn btn-primary" %>
+    </div>
+<% end %>

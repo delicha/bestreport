@@ -1,0 +1,61 @@
+<h1>個人指導報告書一覧</h1>
+
+<%= search_form_for @q, class: 'mb-5' do |f| %>
+    <div class="form-group row">
+        <%= f.label :subject_cont, '教科', class: 'col-sm-2 col-form-label' %>
+        <div class="col-sm-10">
+            <%= f.search_field :subject_cont, class: 'form-control' %>
+        </div>
+    </div>
+    <div class="form-group row">
+        <%= f.label :comment_cont, 'コメント', class: 'col-sm-2 col-form-label' %>
+        <div class="col-sm-10">
+            <%= f.search_field :comment_cont, class: 'form-control' %>
+        </div>
+    </div>
+    <div class="form-group">
+        <%= f.submit class: 'btn btn-outline-primary' %>
+    </div>
+<% end %>
+
+<div class="mb-3">
+    <%= paginate @reports %>
+    <%= page_entries_info @reports %>
+</div>
+
+<table class="table table-hover table-bordered shadow-sm my-3">
+    <thead class="thead-default">
+        <tr class="table-success">
+            <th><%= sort_link(@q, :id) %></th>
+            <th><%= Student.human_attribute_name(:name) %></th>
+            <th><%= User.human_attribute_name(:name) %></th>
+            <th><%= sort_link(@q, :subject) %></th>
+            <th><%= sort_link(@q, :created_at) %></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+    <% @reports.each do |report| %>
+        <tr id="report-#{report.id}">
+            <td><%= report.id %></td>
+            <td><%= link_to report.student.name, student_path(report.student_id) %></td>
+            <td><%= link_to report.user.name, admin_user_path(report.user_id) %></td>
+            <td><%= report.subject %></td>
+            <td><%= report.created_at.strftime("%Y年%m月%d日 %H:%M") %></td>
+            <td class="text-center">
+                <%= link_to "詳細", report_path(report), class: "btn btn-primary mr-3" %>
+                <%= link_to "編集", edit_report_path(report), class: "btn btn-secondary mr-3" %>
+                <%= link_to "削除", report, method: :delete, remote: true, data: { confirm: "タスク「#{report.id}」を削除します。よろしいですか？"}, class: "btn btn-danger" %>
+            </td>
+        </tr>
+    <% end %>    
+    </tbody>
+</table>
+
+<%= link_to "エクスポート", reports_path(format: :csv), class: "btn btn-primary mb-3" %>
+
+<%= form_with url: import_reports_path, multipart: true, class: 'mb-3' do |f| %>
+    <%= f.file_field :file, :accept => "text/csv" %>
+    <%= f.submit "インポート", class: 'btn btn-primary' %>
+<% end %>
+

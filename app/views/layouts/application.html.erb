@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bestreport</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'  %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'  %>
+  </head>
+
+  <body>
+    <div class="app-title navbar navbar-expand-md navbar-light bg-success">
+      <div class="navbar-brand">
+        BestReport
+      </div>
+      <ul class="navbar-nav ml-auto">
+        <% if current_user %>
+          <li class="nav_item"><%= link_to '報告書一覧', reports_path, class: 'nav-link' %></li>
+          <li class="nav_item"><%= link_to '生徒一覧', students_path, class: 'nav-link' %></li>
+          <% if current_user.admin %>
+            <li class="nav_item"><%= link_to '講師一覧', admin_users_path, class: 'nav-link' %></li>
+          <% end %>
+          <li class="nav_item"><%= link_to 'ログアウト', logout_path, method: :delete, class: 'nav-link' %></li>
+        <% else %>
+          <li class="nav_item"><%= link_to 'ログイン', login_path, class: 'nav-link' %></li>
+        <% end %>
+      </ul>
+    </div>
+    
+    <div class="container my-3">
+      <% if flash.notice %>
+        <div class="alert alert-success"><%= flash.notice %></div>
+      <% end %>
+      <%= yield %>
+    </div>
+
+    <footer class="mt-4 py-3 text-center bg-success">
+      <p>&copy; 2021 PROVISION INC.</p>
+    </footer>
+  </body>
+</html>

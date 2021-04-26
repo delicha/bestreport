@@ -1,0 +1,25 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  kind: MyString
+  subject: MyString
+  description: MyString
+  attendance: MyString
+  homework: MyString
+  performance: MyString
+  minitest: MyText
+  comment: MyText
+  other: MyText
+  credit: MyString
+
+two:
+  kind: MyString
+  subject: MyString
+  description: MyString
+  attendance: MyString
+  homework: MyString
+  performance: MyString
+  minitest: MyText
+  comment: MyText
+  other: MyText
+  credit: MyString
