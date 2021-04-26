@@ -1,5 +1,5 @@
 class ReportsController < ApplicationController
-  before_action :set_report, only: [:show, :edit, :update, :destroy]
+  before_action :set_report, only: [:show, :edit, :update, :destroy, :mailsend]
   before_action :set_student
   
   def index
@@ -31,17 +31,22 @@ class ReportsController < ApplicationController
     end
 
     if @report.save
-        redirect_to reports_url, notice: "報告書「#{@report.id}」を登録しました。"
+      redirect_to reports_url, notice: "報告書「#{@report.id}」を登録しました。"
     else
-        render :new
+      render :new
     end
   end
 
   def update
     if @report.update(report_params)
-      redirect_to reports_url, notice: "報告書「#{@report.id}」を更新しました。"
+      if (@report.mailsend == true)
+        ReportMailer.creation_email(@report).deliver_now
+        redirect_to reports_url, notice: "報告書「#{@report.id}」を送信しました。"
+      else
+        redirect_to reports_url, notice: "報告書「#{@report.id}」を更新しました。"
+      end
     else
-        render :edit
+      render :edit
     end
   end
 

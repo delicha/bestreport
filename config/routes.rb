@@ -8,9 +8,6 @@ Rails.application.routes.draw do
   end
 
   resources :students do
-    member do
-      get :history
-    end
     post :import, on: :collection
   end
   

@@ -56,6 +56,15 @@
         <th class="table-success"><%= f.label :credit %></th>
         <td><%= f.text_field :credit, class: 'form-control', id: 'report_credit' %></td>
       </tr>
+      <% if current_user.admin %>
+      <tr>
+          <th class="table-danger"><%= f.label :mailsend, '送信ステータス', class: "form-check-label" %></th>
+          <td>
+              <%= f.check_box :mailsend, class: "form-check-input ml-1" %>
+              <span class="ml-4">送信する場合はチェックを入れる</span>
+          </td>
+      </tr>
+      <% end %>
     </tbody>
   </table> 
 
