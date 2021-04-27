@@ -25,7 +25,7 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
   # アプリケーションのホスト情報をメイラー内で使いたい場合は:hostパラメータを明示的に指定します。
   # これにより、メーラー内で、= link_to 'ようこそ', welcome_url などのように記述可能となる。
-  config.action_mailer.default_url_options = { host: 'bestreport.herokuapp.com' }
+  config.action_mailer.default_url_options = { host: 'https://bestreport.herokuapp.com' }
   # smtpの配信メソッドの詳細設定を行います。
   # SENDGRID用
   config.action_mailer.smtp_settings = {
