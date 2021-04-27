@@ -14,6 +14,30 @@ Rails.application.configure do
   config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true
 
+  # 指定のない場合のデフォルト値はtrueです。
+  config.action_mailer.perform_caching = false
+  # deliverメソッドを実行したときに、true なら、メール配信を行なう。
+  config.action_mailer.perform_deliveries = true
+  # メール配信に失敗した場合にエラーを発生するかどうかを指定します。
+  # このオプションは、外部のメールサーバーが即時配信を行っている場合にのみ機能します。
+  config.action_mailer.raise_delivery_errors = true
+  # SMTP プロトコルによるメール配信を行う。
+  config.action_mailer.delivery_method = :smtp
+  # アプリケーションのホスト情報をメイラー内で使いたい場合は:hostパラメータを明示的に指定します。
+  # これにより、メーラー内で、= link_to 'ようこそ', welcome_url などのように記述可能となる。
+  config.action_mailer.default_url_options = { host: 'bestreport.herokuapp.com' }
+  # smtpの配信メソッドの詳細設定を行います。
+  # SENDGRID用
+  config.action_mailer.smtp_settings = {
+      address: 'smtp.sendgrid.net',
+      port: 587,
+      domain: 'heroku.com',
+      user_name: 'apikey',
+      password: ENV['SENDGRID_PASSWORD'],
+      authentication: :plain,
+      enable_starttls_auto: true
+  }
+
   # Ensures that a master key has been made available in either ENV["RAILS_MASTER_KEY"]
   # or in config/master.key. This key is used to decrypt credentials (and other encrypted files).
   # config.require_master_key = true
