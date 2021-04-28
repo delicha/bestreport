@@ -1,4 +1,6 @@
-<%= render 'header' %>
+<html>
+
+  <%= render "shared/header" %>
 
   <body>
     <div class="app-title navbar navbar-expand-md navbar-light bg-success">
@@ -26,4 +28,7 @@
       <%= yield %>
     </div>
 
-<%= render 'footer' %>
+    <%= render "shared/footer" %>
+
+  </body>
+</html>
