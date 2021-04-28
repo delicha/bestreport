@@ -1,13 +1,4 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Bestreport</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'  %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'  %>
-  </head>
+<%= render 'header' %>
 
   <body>
     <div class="app-title navbar navbar-expand-md navbar-light bg-success">
@@ -35,8 +26,4 @@
       <%= yield %>
     </div>
 
-    <footer class="mt-4 py-3 text-center bg-success">
-      <p>&copy; 2021 PROVISION INC.</p>
-    </footer>
-  </body>
-</html>
+<%= render 'footer' %>
