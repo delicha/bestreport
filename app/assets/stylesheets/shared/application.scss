@@ -1,1 +1,18 @@
 @import "bootstrap";
+
+.container {
+    margin-top: 70px;
+    margin-bottom: 130px;
+} 
+
+footer {
+    position: left bottom fixed;
+    margin-top: 50px;
+}
+
+@media screen and (min-width:100px) and ( max-width:575px) { 
+
+    h1 {
+        font-size: 140%;
+    } 
+}

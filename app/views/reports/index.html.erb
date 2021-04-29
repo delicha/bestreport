@@ -1,6 +1,6 @@
 <h1>個人指導報告書一覧</h1>
 
-<%= search_form_for @q, class: 'mb-5' do |f| %>
+<%= search_form_for @q, class: 'my-4' do |f| %>
     <div class="form-group row">
         <%= f.label :subject_cont, '教科', class: 'col-sm-2 col-form-label' %>
         <div class="col-sm-10">
@@ -52,10 +52,12 @@
     </tbody>
 </table>
 
-<%= link_to "エクスポート", reports_path(format: :csv), class: "btn btn-primary mb-3" %>
+<% if current_user.admin %>
+    <%= link_to "エクスポート", reports_path(format: :csv), class: "btn btn-primary mb-3" %>
 
-<%= form_with url: import_reports_path, multipart: true, class: 'mb-3' do |f| %>
-    <%= f.file_field :file, :accept => "text/csv" %>
-    <%= f.submit "インポート", class: 'btn btn-primary' %>
+    <%= form_with url: import_reports_path, multipart: true, class: 'mb-3' do |f| %>
+        <%= f.file_field :file, :accept => "text/csv" %>
+        <%= f.submit "インポート", class: 'btn btn-primary' %>
+    <% end %>
 <% end %>
 

@@ -12,7 +12,7 @@
         
       <tr>  
         <th class="table-success"><%= f.label :student_id %></th>
-        <td><%= f.text_field :student_id, value: @id, class: 'form-control', id: 'report_student_id' %></td>
+        <td><%= f.text_field :student_id, value: @id, class: 'form-control', id: 'report_student_id', readonly: 'readonly' %></td>
       </tr>
       <tr>  
         <th class="table-success"><%= f.label :kind %></th>
