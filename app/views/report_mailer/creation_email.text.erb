@@ -31,10 +31,10 @@
 <%= simple_format(h(@report.minitest), sanitize: false, wrapper_tag: "div") %>
 <%= "\n" %>
 | コメント：
-<%= raw auto_link(simple_format(h(@report.comment), sanitize: false, wrapper_tag: "div")) %>
+<%= simple_format(h(@report.comment), sanitize: false, wrapper_tag: "div") %>
 <%= "\n" %>
 | コマ数：
 <%= simple_format(h(@report.credit), sanitize: false, wrapper_tag: "div") %>
 <%= "\n" %>
 | その他：
-<%= raw auto_link(simple_format(h(@report.other), sanitize: false, wrapper_tag: "div")) %>
+<%= simple_format(h(@report.other), sanitize: false, wrapper_tag: "div") %>
