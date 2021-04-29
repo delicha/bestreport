@@ -1,40 +1,16 @@
-| 以下の報告書を作成しました
+| ※ こちらは送信用のメールです。こちらのメールアドレスにご返信なさらないでください。
 <%= "\n" %>
-| 報告書作成日：
-<%= @report.created_at.strftime("%Y年%m月%d日 %H:%M") %>
-<%= "\n" %>
-| 生徒氏名：
-<%= @report.student.name %>
-<%= "\n" %>
-| 講師名：
-<%= @report.user.name %>
-<%= "\n" %>
-| 種別：
-<%= @report.kind %>
-<%= "\n" %>
-| 教科：
-<%= @report.subject %>
-<%= "\n" %>
-| 備考：
-<%= simple_format(h(@report.description), sanitize: false, wrapper_tag: "div") %>
-<%= "\n" %>
-| 出欠：
-<%= @report.attendance %>
-<%= "\n" %>
-| 宿題達成度：
-<%= @report.homework %>
-<%= "\n" %>
-| 授業理解度：
-<%= @report.performance %>
-<%= "\n" %>
-| ミニテスト：
-<%= simple_format(h(@report.minitest), sanitize: false, wrapper_tag: "div") %>
-<%= "\n" %>
+| 報告書作成日時：<%= @report.created_at.strftime("%Y年%m月%d日 %H:%M") %>
+| 生徒氏名：<%= @report.student.name %>
+| 講師名：<%= @report.user.name %>
+| 種別：<%= @report.kind %>
+| 教科：<%= @report.subject %>
+| 備考：<%= @report.description %>
+| 出欠：<%= @report.attendance %>
+| 宿題達成度：<%= @report.homework %>
+| 授業理解度：<%= @report.performance %>
+| ミニテスト：<%= @report.minitest %>
 | コメント：
-<%= simple_format(h(@report.comment), sanitize: false, wrapper_tag: "div") %>
-<%= "\n" %>
-| コマ数：
-<%= simple_format(h(@report.credit), sanitize: false, wrapper_tag: "div") %>
-<%= "\n" %>
-| その他：
-<%= simple_format(h(@report.other), sanitize: false, wrapper_tag: "div") %>
+<%= @report.comment %>
+| コマ数：<%= @report.credit %>
+| その他：<%= @report.other %>
