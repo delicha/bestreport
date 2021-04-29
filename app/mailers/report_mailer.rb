@@ -5,7 +5,7 @@ class ReportMailer < ApplicationMailer
         @report = report
         mail(
             subject: '個人指導報告書',
-            to: @report.email
+            to: @report.student.email
         )
     end
 end
