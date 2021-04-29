@@ -52,15 +52,15 @@
         </tr>
         <tr>
             <th class="table-success"><%= Report.human_attribute_name(:credit) %></th>
-            <td><%= @report.credit %></td>
+            <td><%= simple_format(h(@report.credit), sanitize: false, wrapper_tag: "div") %></td>
         </tr>
         <tr>
             <th class="table-success"><%= Report.human_attribute_name(:created_at) %></th>
-            <td><%= @report.created_at %></td>
+            <td><%= @report.created_at.strftime("%Y年%m月%d日 %H:%M") %></td>
         </tr>
         <tr>
             <th class="table-success"><%= Report.human_attribute_name(:updated_at) %></th>
-            <td><%= @report.updated_at %></td>
+            <td><%= @report.updated_at.strftime("%Y年%m月%d日 %H:%M") %></td>
         </tr>
         <tr>
             <th class="table-success"><%= Report.human_attribute_name(:mailsend) %></th>

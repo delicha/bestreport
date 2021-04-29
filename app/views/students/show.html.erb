@@ -36,11 +36,11 @@
         </tr>
         <tr>
             <th class="table-primary"><%= Student.human_attribute_name(:created_at) %></th>
-            <td><%= @student.created_at %></td>
+            <td><%= @student.created_at.strftime("%Y年%m月%d日 %H:%M") %></td>
         </tr>
         <tr>
             <th class="table-primary"><%= Student.human_attribute_name(:updated_at) %></th>
-            <td><%= @student.updated_at %></td>
+            <td><%= @student.updated_at.strftime("%Y年%m月%d日 %H:%M") %></td>
         </tr>
     </tbody>
 </table>
