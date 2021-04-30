@@ -3,15 +3,15 @@
   <%= render "shared/header" %>
 
   <body>
-    <div class="app-title navbar navbar-expand-md navbar-light bg-success">
+    <div class="navbar-expand-sm">
 
-      <nav class="navbar navbar-expand-lg navbar-light bg-success fixed-top">
-        <a class="navbar-brand text-white" href="#">BestReport</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <nav class="navbar navbar-expand-lg navbar-dark navbar-2 fixed-top">
+        <a class="navbar-brand" href="#">BestReport</a>
+        <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navbarSupportedContent15" aria-controls="navbarSupportedContent15" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+        <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent15">
           <ul class="navbar-nav ml-auto">
             <% if current_user %>
               <li class="nav_item"><%= link_to '報告書一覧', reports_path, class: 'nav-link' %></li>
@@ -26,8 +26,9 @@
           </ul>
         </div>
       </nav>
+      
     </div>
-    
+
     <div class="container">
       <% if flash.notice %>
         <div class="alert alert-success"><%= flash.notice %></div>

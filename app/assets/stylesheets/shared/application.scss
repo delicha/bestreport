@@ -1,5 +1,17 @@
 @import "bootstrap";
 
+h1 {
+    font-size: 200%;
+}
+
+nav {
+    background-color: #017f25;
+    background-image: image-url('dog-icon.png');
+    background-position: left 120px top 5px;
+	background-repeat: no-repeat;
+    background-size: 50px 50px;
+}
+
 .container {
     margin-top: 70px;
     margin-bottom: 130px;
@@ -8,11 +20,16 @@
 footer {
     position: left bottom fixed;
     margin-top: 50px;
+    background-color: #017f25;
 }
 
-@media screen and (min-width:100px) and ( max-width:575px) { 
+@media screen and ( max-width:575px) { 
 
     h1 {
         font-size: 140%;
     } 
+
+    .navbar.navbar-2 .navbar-toggler-icon {
+        background-image: url('https://mdbcdn.b-cdn.net/img/svg/hamburger2.svg?color=fff');
+    }
 }
