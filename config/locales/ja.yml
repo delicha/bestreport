@@ -12,7 +12,7 @@ ja:
       student: 生徒
     attributes:
       report:
-        id: 登録番号
+        id: ID
         kind: 種別
         teacher: 講師
         subject: 教科
@@ -24,32 +24,32 @@ ja:
         comment: コメント
         other: その他
         credit: コマ数
-        mailsend: 送信状態
-        created_at: 登録日時
-        updated_at: 更新日時
+        mailsend: 送信
+        created_at: 登録日
+        updated_at: 更新日
         student_id: 生徒番号
         image: 画像
       user:
-        id: 登録番号
-        name: 講師氏名
+        id: ID
+        name: 講師
         kana: カナ
         email: メール
-        subject: 可能教科
-        admin: 管理権限
+        subject: 教科
+        admin: 権限
         password: パスワード
         password_confirmation: パスワード（確認）
-        created_at: 登録日時
-        updated_at: 更新日時
+        created_at: 登録日
+        updated_at: 更新日
       student:
-        id: 登録番号
-        name: 生徒氏名
-        kana: ふりがな
+        id: ID
+        name: 生徒
+        kana: カナ
         email: メールアドレス
         birthdate: 誕生日
-        school: 通学学校
+        school: 学校
         memo: メモ
-        created_at: 登録日時
-        updated_at: 更新日時
+        created_at: 登録日
+        updated_at: 更新日
   date:
     abbr_day_names:
     - 日

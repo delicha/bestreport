@@ -32,7 +32,9 @@
             <th><%= sort_link(@q, :kana) %></th>
             <th><%= sort_link(@q, :birthdate) %></th>
             <th><%= sort_link(@q, :school) %></th>
-            <th>生徒情報操作</th>
+            <% if current_user.admin %>
+                <th>操作</th>
+            <% end %> 
         </tr>
     </thead>
     <tbody>
@@ -42,11 +44,12 @@
             <td><%= student.kana %></td>
             <td><%= student.birthdate %></td>
             <td><%= student.school %></td>
-            <td class="d-fl">
-                <%= link_to "詳細", student_path(student), class: "btn btn-primary" %>
-                <%= link_to "編集", edit_student_path(student), class: "btn btn-secondary" %>
-                <%= link_to "削除", student, method: :delete, data: { confirm: "生徒#{student.name}」を削除します。よろしいですか？"}, class: "btn btn-danger" %>
-            </td>
+            <% if current_user.admin %>
+                <td class="d-fl">
+                    <%= link_to "詳細", student_path(student), class: "btn btn-primary" %>
+                    <%= link_to "編集", edit_student_path(student), class: "btn btn-secondary" %>
+                </td>
+            <% end %> 
         </tr>
     <% end %>    
     </tbody>
