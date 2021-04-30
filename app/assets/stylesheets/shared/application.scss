@@ -23,6 +23,12 @@ footer {
     background-color: #017f25;
 }
 
+.d-fl {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
 @media screen and ( max-width:575px) { 
 
     h1 {

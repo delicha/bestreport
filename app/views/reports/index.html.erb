@@ -31,7 +31,8 @@
             <th><%= User.human_attribute_name(:name) %></th>
             <th><%= sort_link(@q, :subject) %></th>
             <th><%= sort_link(@q, :created_at) %></th>
-            <th></th>
+            <th>送信状態</th>
+            <th>報告書情報操作</th>
         </tr>
     </thead>
     <tbody>
@@ -42,9 +43,16 @@
             <td><%= link_to report.user.name, admin_user_path(report.user_id) %></td>
             <td><%= report.subject %></td>
             <td><%= report.created_at.strftime("%Y年%m月%d日 %H:%M") %></td>
-            <td class="text-center">
-                <%= link_to "詳細", report_path(report), class: "btn btn-primary mr-3" %>
-                <%= link_to "編集", edit_report_path(report), class: "btn btn-secondary mr-3" %>
+            <td class="text-center text-danger font-weight-bold">
+                <% if report.mailsend == false %>
+                    未
+                <% else %>
+                 &check;
+                <% end %>
+            </td>
+            <td class="d-fl">
+                <%= link_to "詳細", report_path(report), class: "btn btn-primary" %>
+                <%= link_to "編集", edit_report_path(report), class: "btn btn-secondary" %>
                 <%= link_to "削除", report, method: :delete, remote: true, data: { confirm: "タスク「#{report.id}」を削除します。よろしいですか？"}, class: "btn btn-danger" %>
             </td>
         </tr>
