@@ -25,11 +25,6 @@ class ReportsController < ApplicationController
   def create
     @report = current_user.reports.new(report_params)
 
-    if params[:back].present?
-      render :new
-      return
-    end
-
     if @report.save
       redirect_to reports_url, notice: "報告書「#{@report.id}」を登録しました。"
     else

@@ -12,7 +12,7 @@
         
       <tr>  
         <th class="table-success"><%= f.label :student_id %></th>
-        <td><%= f.text_field :student_id, value: @id, class: 'form-control', id: 'report_student_id', readonly: 'readonly' %></td>
+        <td><%= f.text_field :student_id, value: params[:student_id], class: 'form-control', id: 'report_student_id', readonly: 'readonly' %></td>
       </tr>
       <tr>  
         <th class="table-success"><%= f.label :kind %></th>
@@ -58,7 +58,7 @@
   </table> 
 
   <div class="text-center">
-    <%= f.submit '戻る', name: 'back', class: "btn btn-secondary mr-3" %>
+    <%= link_to '生徒一覧', students_path, class: 'btn btn-secondary mr-3' %>
     <%= f.submit nil, class: "btn btn-primary" %>
   </div>
 <% end %>

@@ -46,7 +46,7 @@
                 <td><%= report.user.name %></td>
             <% end %>
             <td><%= report.subject %></td>
-            <td><%= report.created_at.strftime("%Y年%m月%d日 %H:%M") %></td>
+            <td><%= report.created_at.strftime("%Y年%m月%d日" + "(%a)" + " %H:%M")  %></td>
             <td class="text-center text-danger font-weight-bold">
                 <% if report.mailsend == false %>
                     未

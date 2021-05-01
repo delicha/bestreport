@@ -56,11 +56,11 @@
         </tr>
         <tr>
             <th class="table-success"><%= Report.human_attribute_name(:created_at) %></th>
-            <td><%= @report.created_at.strftime("%Y年%m月%d日 %H:%M") %></td>
+            <td><%= @report.created_at.strftime("%Y年%m月%d日" + "(%a)" + " %H:%M")  %></td>
         </tr>
         <tr>
             <th class="table-success"><%= Report.human_attribute_name(:updated_at) %></th>
-            <td><%= @report.updated_at.strftime("%Y年%m月%d日 %H:%M") %></td>
+            <td><%= @report.updated_at.strftime("%Y年%m月%d日" + "(%a)" + " %H:%M")  %></td>
         </tr>
         <tr>
             <th class="table-success"><%= Report.human_attribute_name(:mailsend) %></th>
