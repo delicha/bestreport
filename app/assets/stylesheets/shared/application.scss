@@ -10,6 +10,9 @@ nav {
     background-position: left 120px top 5px;
 	background-repeat: no-repeat;
     background-size: 50px 50px;
+    &.paginator {
+        background-color: none;
+    }
 }
 
 .container {
