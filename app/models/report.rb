@@ -18,7 +18,7 @@ class Report < ApplicationRecord
         CSV.foreach(file.path, headers: true) do |row|
             report = Report.new
             report.attributes = row.to_hash.slice(*csv_attributes)
-            report.save!
+            report.save!(validate: false)
         end
     end
 
