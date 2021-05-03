@@ -16,4 +16,6 @@ Rails.application.routes.draw do
   resources :reports do
     post :import, on: :collection
   end
+
+  get '/unsent', to: 'reports#unsent'
 end

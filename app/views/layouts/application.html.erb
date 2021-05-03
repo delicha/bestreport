@@ -18,6 +18,7 @@
               <li class="nav_item"><%= link_to '生徒一覧', students_path, class: 'nav-link' %></li>
               <% if current_user.admin %>
                 <li class="nav_item"><%= link_to '講師一覧', admin_users_path, class: 'nav-link' %></li>
+                <li class="nav_item"><%= link_to '未送信一覧', unsent_path, class: 'nav-link' %></li>
               <% end %>
               <li class="nav_item"><%= link_to 'ログアウト', logout_path, method: :delete, class: 'nav-link' %></li>
             <% else %>

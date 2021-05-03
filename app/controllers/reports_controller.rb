@@ -52,8 +52,13 @@ class ReportsController < ApplicationController
     redirect_to reports_url, notice: "報告書「#{@report.id}」を削除しました。"
   end
 
+  def unsent
+    @q = Report.all.where(mailsend: false).all.ransack(params[:q])
+    @reports = @q.result(distinct: true).page(params[:page]).per(10)
+  end
+
   def import
-    current_user.reports.import(params[:file])
+    Report.import(params[:file])
     redirect_to reports_url, notice: "報告書を追加しました。"
   end
 
