@@ -5,66 +5,56 @@
         <tr>
             <th class="table-success"><%= Report.human_attribute_name(:student_id) %></th>
             <td><%= @report.student_id %></td>
-        </tr>
-        <tr>
             <th class="table-success"><%= Student.human_attribute_name(:name) %></th>
             <td><%= @report.student.name %></td>
         </tr>
         <tr>
             <th class="table-success"><%= Report.human_attribute_name(:teacher) %></th>
             <td><%= @report.user.name %></td>
+            <th class="table-success"><%= Report.human_attribute_name(:credit) %></th>
+            <td><%= simple_format(h(@report.credit), sanitize: false, wrapper_tag: "div") %></td>
         </tr>
         <tr>
             <th class="table-success"><%= Report.human_attribute_name(:kind) %></th>
             <td><%= @report.kind %></td>
-        </tr>
-        <tr>
             <th class="table-success"><%= Report.human_attribute_name(:subject) %></th>
             <td><%= @report.subject %></td>
         </tr>
         <tr>
             <th class="table-success"><%= Report.human_attribute_name(:description) %></th>
-            <td><%= simple_format(h(@report.description), sanitize: false, wrapper_tag: "div") %></td>
+            <td colspan="3"><%= simple_format(h(@report.description), sanitize: false, wrapper_tag: "div") %></td>
         </tr>
         <tr>
             <th class="table-success"><%= Report.human_attribute_name(:attendance) %></th>
-            <td><%= @report.attendance %></td>
+            <td colspan="3"><%= @report.attendance %></td>
         </tr>
         <tr>
             <th class="table-success"><%= Report.human_attribute_name(:homework) %></th>
             <td><%= @report.homework %></td>
-        </tr>
-        <tr>
             <th class="table-success"><%= Report.human_attribute_name(:performance) %></th>
             <td><%= @report.performance %></td>
         </tr>
         <tr>
             <th class="table-success"><%= Report.human_attribute_name(:minitest) %></th>
-            <td><%= simple_format(h(@report.minitest), sanitize: false, wrapper_tag: "div") %></td>
+            <td colspan="3"><%= simple_format(h(@report.minitest), sanitize: false, wrapper_tag: "div") %></td>
         </tr>
         <tr>
             <th class="table-success"><%= Report.human_attribute_name(:comment) %></th>
-            <td><%= raw auto_link(simple_format(h(@report.comment), sanitize: false, wrapper_tag: "div")) %></td>
+            <td colspan="3"><%= raw auto_link(simple_format(h(@report.comment), sanitize: false, wrapper_tag: "div")) %></td>
         </tr>
         <tr>
             <th class="table-success"><%= Report.human_attribute_name(:other) %></th>
-            <td><%= raw auto_link(simple_format(h(@report.other), sanitize: false, wrapper_tag: "div")) %></td>
-        </tr>
-        <tr>
-            <th class="table-success"><%= Report.human_attribute_name(:credit) %></th>
-            <td><%= simple_format(h(@report.credit), sanitize: false, wrapper_tag: "div") %></td>
+            <td colspan="3"><%= raw auto_link(simple_format(h(@report.other), sanitize: false, wrapper_tag: "div")) %></td>
         </tr>
         <tr>
             <th class="table-success"><%= Report.human_attribute_name(:created_at) %></th>
             <td><%= @report.created_at.strftime("%Y年%m月%d日" + "(%a)" + " %H:%M")  %></td>
-        </tr>
-        <tr>
             <th class="table-success"><%= Report.human_attribute_name(:updated_at) %></th>
             <td><%= @report.updated_at.strftime("%Y年%m月%d日" + "(%a)" + " %H:%M")  %></td>
         </tr>
         <tr>
             <th class="table-success"><%= Report.human_attribute_name(:mailsend) %></th>
-            <td><%= @report.mailsend? ? '送信済み' : '未送信' %></td>
+            <td colspan="3"><%= @report.mailsend? ? '送信済み' : '未送信' %></td>
         </tr>
     </tbody>
 </table>

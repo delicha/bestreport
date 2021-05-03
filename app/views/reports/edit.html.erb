@@ -15,51 +15,47 @@
       <tr>  
         <th class="table-success"><%= f.label :student_id %></th>
         <td><%= f.text_field :student_id, value: @report.student_id, class: 'form-control', id: 'report_student_id', readonly: 'readonly' %></td>
+        <th class="table-success">生徒氏名</th>
+        <td><%= @report.student.name %></td>
       </tr>
       <tr>  
         <th class="table-success"><%= f.label :kind %></th>
         <td><%= f.text_field :kind, value: @report.kind, class: 'form-control', id: 'report_kind' %></td>
-      </tr>
-      <tr>
         <th class="table-success"><%= f.label :subject %></th>
         <td><%= f.text_field :subject, value: @report.subject, class: 'form-control', id: 'report_subject' %></td>
       </tr>
       <tr>
         <th class="table-success"><%= f.label :description %></th>
         <td><%= f.text_field :description, class: 'form-control', id: 'report_descrition' %></td>
+        <th class="table-success"><%= f.label :credit %></th>
+        <td><%= f.text_field :credit, class: 'form-control', id: 'report_credit' %></td>
       </tr>
       <tr>
         <th class="table-success"><%= f.label :attendance %></th>
-        <td><%= f.text_field :attendance, value: @report.attendance, class: 'form-control', id: 'report_attendance' %></td>
+        <td colspan="3"><%= f.text_field :attendance, value: @report.attendance, class: 'form-control', id: 'report_attendance' %></td>
       </tr>
       <tr>
         <th class="table-success"><%= f.label :homework %></th>
         <td><%= f.text_field :homework, value: @report.homework, class: 'form-control', id: 'report_homework' %></td>
-      </tr>
-      <tr>
         <th class="table-success"><%= f.label :performance %></th>
         <td><%= f.text_field :performance, value: @report.performance, class: 'form-control', id: 'report_performance' %></td>
       </tr>
       <tr>
         <th class="table-success"><%= f.label :minitest %></th>
-        <td><%= f.text_area :minitest, rows: 2, class: 'form-control', id: 'report_minitest' %></td>
+        <td colspan="3"><%= f.text_area :minitest, rows: 2, class: 'form-control', id: 'report_minitest' %></td>
       </tr>
       <tr>
         <th class="table-success"><%= f.label :comment %></th>
-        <td><%= f.text_area :comment, rows: 5, class: 'form-control', id: 'report_comment' %></td>
+        <td colspan="3"><%= f.text_area :comment, rows: 5, class: 'form-control', id: 'report_comment' %></td>
       </tr>
       <tr>
         <th class="table-success"><%= f.label :other %></th>
-        <td><%= f.text_area :other, rows: 3, class: 'form-control', id: 'report_other' %></td>
-      </tr>
-      <tr>
-        <th class="table-success"><%= f.label :credit %></th>
-        <td><%= f.text_field :credit, class: 'form-control', id: 'report_credit' %></td>
+        <td colspan="3"><%= f.text_area :other, rows: 3, class: 'form-control', id: 'report_other' %></td>
       </tr>
       <% if current_user.admin && (@report.mailsend == false) %>
       <tr>
           <th class="table-danger"><%= f.label :mailsend, '送信ステータス', class: "form-check-label" %></th>
-          <td>
+          <td colspan="3">
               <%= f.check_box :mailsend, class: "form-check-input ml-1" %>
               <span class="ml-4">送信する場合はチェックを入れる</span>
           </td>
