@@ -55,6 +55,11 @@
     </tbody>
 </table>
 
+<div class="mb-3">
+    <%= paginate @students %>
+    <%= page_entries_info @students %>
+</div>
+
 <% if current_user.admin %>
     <%= link_to "エクスポート", reports_path(format: :csv), class: "btn btn-primary mb-3" %>
 

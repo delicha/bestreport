@@ -4,7 +4,7 @@ class ReportsController < ApplicationController
   
   def index
     @q = Report.all.ransack(params[:q])
-    @reports = @q.result(distinct: true).page(params[:page]).per(10)
+    @reports = @q.result(distinct: true).page(params[:page]).per(10).order(id: :DESC)
 
     respond_to do |format|
         format.html
@@ -54,7 +54,7 @@ class ReportsController < ApplicationController
 
   def unsent
     @q = Report.all.where(mailsend: false).all.ransack(params[:q])
-    @reports = @q.result(distinct: true).page(params[:page]).per(10)
+    @reports = @q.result(distinct: true).page(params[:page]).per(10).order(id: :DESC)
   end
 
   def import
