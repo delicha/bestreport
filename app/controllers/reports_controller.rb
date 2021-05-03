@@ -3,7 +3,7 @@ class ReportsController < ApplicationController
   before_action :set_student
   
   def index
-    @q = current_user.reports.ransack(params[:q])
+    @q = Report.all.ransack(params[:q])
     @reports = @q.result(distinct: true).page(params[:page]).per(10)
 
     respond_to do |format|
@@ -23,11 +23,13 @@ class ReportsController < ApplicationController
   end
 
   def create
-    @report = current_user.reports.new(report_params)
+    session[:student_id] = @id
+    @report = Report.new(report_params.merge(user_id: current_user.id))
 
     if @report.save
       redirect_to reports_url, notice: "報告書「#{@report.id}」を登録しました。"
     else
+      session[:student_id] = @id
       render :new
     end
   end
@@ -60,11 +62,12 @@ class ReportsController < ApplicationController
   end
 
   private def set_report
-    @report = current_user.reports.find(params[:id])
+    @report = Report.find(params[:id])
+    # @report = current_user.reports.find(params[:id])
   end
 
   private def set_student
     @id = params[:student_id].to_i
-    @student = Student.find_by(id: params[:student_id])
+    @student = Student.find_by(id: @id)
   end
 end

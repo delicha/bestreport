@@ -59,6 +59,8 @@
 
   <div class="text-center">
     <%= link_to '生徒一覧', students_path, class: 'btn btn-secondary mr-3' %>
-    <%= f.submit nil, class: "btn btn-primary" %>
+    <% unless @report.comment == "" %>
+      <%= f.submit nil, class: "btn btn-primary" %>
+    <% end %>
   </div>
 <% end %>
