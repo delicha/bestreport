@@ -9,6 +9,28 @@ class Student < ApplicationRecord
     validates :school, presence: true, length: { maximum: 30 } 
     validates :birthdate, presence: true, length: { maximum: 20 }
 
+    def self.csv_attributes
+        ["name", "kana", "email", "password_digest", "birthdate", "school", "memo", "created_at", "updated_at"]
+    end
+
+    def self.generate_csv
+    bom = "\uFEFF"
+    CSV.generate(bom, headers: true) do |csv|
+        csv << csv_attributes
+        all.each do |student|
+        csv << csv_attributes.map{|attr| student.send(attr)}
+        end
+    end
+    end
+
+    def self.import(file)
+    CSV.foreach(file.path, headers: true) do |row|
+        student = Student.new
+        student.attributes = row.to_hash.slice(*csv_attributes)
+        student.save!(validate: false)
+    end
+    end
+
     has_many :reports, dependent: :destroy
 
     default_scope -> {order(created_at: :desc)}

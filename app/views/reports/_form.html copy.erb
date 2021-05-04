@@ -11,7 +11,7 @@
     <tbody>
       <tr>  
         <th class="table-success"><%= f.label :student_id %></th>
-        <td><%= f.text_field :student_id, value: "#{@id}", class: 'form-control', id: 'report_student_id', readonly: 'readonly' %></td>
+        <td><%= f.text_field :student_id, value: params[:student_id], class: 'form-control', id: 'report_student_id', readonly: 'readonly' %></td>
         <th class="table-success">生徒氏名</th>
         <td><%= @student.name %></td>
       </tr>
