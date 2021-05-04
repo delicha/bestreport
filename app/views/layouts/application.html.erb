@@ -31,6 +31,9 @@
     </div>
 
     <div class="container">
+      <div class="text-right">
+        <small class="text-warning">[<%= current_user.name %> 先生ログイン中]</small>
+      </div>
       <% if flash.notice %>
         <div class="alert alert-success"><%= flash.notice %></div>
       <% end %>
