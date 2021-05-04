@@ -6,8 +6,8 @@ class StudentsController < ApplicationController
     @students = @q.result(distinct: true).page(params[:page]).per(10)
 
     respond_to do |format|
-        format.html
-        format.csv {send_data @students.generate_csv, filename: "students-#{Time.zone.now.strftime('%Y%m%d%S')}.csv"}
+      format.html
+      format.csv {send_data @students.generate_csv, filename: "students-#{Time.zone.now.strftime('%Y%m%d%S')}.csv"}
     end
   end
 
@@ -15,33 +15,33 @@ class StudentsController < ApplicationController
   end
 
   def new
-      @student = Student.new
+    @student = Student.new
   end
 
   def edit
   end
 
   def create
-      @student = Student.new(student_params)
+    @student = Student.new(student_params)
 
-      if @student.save
-          redirect_to student_path(@student), notice: "生徒「#{@student.name}」を登録しました。"
-      else
-          render :new
-      end
+    if @student.save
+      redirect_to student_path(@student), notice: "生徒「#{@student.name}」を登録しました。"
+    else
+      render :new
+    end
   end
 
   def update
-      if @student.update(student_params)
-          redirect_to student_path(@student), notice: "生徒「#{@student.name}」を更新しました。"
-      else
-          render :edit
-      end
+    if @student.update(student_params)
+      redirect_to student_path(@student), notice: "生徒「#{@student.name}」を更新しました。"
+    else
+      render :edit
+    end
   end
 
   def destroy
-      @student.destroy
-      redirect_to students_url, notice: "生徒「#{@student.name}」を削除しました。"
+    @student.destroy
+    redirect_to students_url, notice: "生徒「#{@student.name}」を削除しました。"
   end
 
   def import
@@ -50,7 +50,7 @@ class StudentsController < ApplicationController
   end
 
   private def student_params
-      params.require(:student).permit(:name, :kana, :email, :birthdate, :school, :memo)
+    params.require(:student).permit(:name, :kana, :email, :birthdate, :school, :memo)
   end
 
   private def set_student

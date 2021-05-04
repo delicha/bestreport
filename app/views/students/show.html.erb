@@ -58,12 +58,13 @@
 
 <table class="table table-hover table-bordered shadow-sm my-4">
     <thead class="thead-default">
-        <tr class="table-success">
+        <tr class="table-success text-center">
             <th><%= Report.human_attribute_name(:id) %></th>
             <th><%= Report.human_attribute_name(:subject) %></th>
             <th><%= User.human_attribute_name(:name) %></th>
             <th><%= Report.human_attribute_name(:created_at) %></th>
-            <th></th>
+            <th>送信</th>
+            <th>操作</th>
         </tr>
     </thead>
     <tbody>
@@ -73,6 +74,13 @@
             <td><%= report.subject %></td>
             <td><%= report.user.name %></td>
             <td><%= report.created_at.strftime("%Y年%m月%d日" + "(%a)" + " %H:%M") %></td>
+            <td class="text-center text-danger font-weight-bold">
+                <% if report.mailsend == false %>
+                    未
+                <% else %>
+                 &check;
+                <% end %>
+            </td>
             <td class="text-center">
                 <%= link_to "詳細", report_path(report), class: "btn btn-primary mr-3" %>
                 <% if (report.user_id == current_user.id) || current_user.admin %>
