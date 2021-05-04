@@ -42,6 +42,10 @@
             <th class="table-primary"><%= Student.human_attribute_name(:updated_at) %></th>
             <td><%= @student.updated_at.strftime("%Y年%m月%d日 %H:%M") %></td>
         </tr>
+        <tr>
+            <th class="table-primary">報告書合計</th>
+            <td><%= @student.reports.count %> 枚</td>
+        </tr>
     </tbody>
 </table>
 

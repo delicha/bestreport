@@ -44,6 +44,11 @@ class StudentsController < ApplicationController
       redirect_to students_url, notice: "生徒「#{@student.name}」を削除しました。"
   end
 
+  def import
+    Student.import(params[:file])
+    redirect_to students_url, notice: "生徒を追加しました。"
+  end
+
   private def student_params
       params.require(:student).permit(:name, :kana, :email, :birthdate, :school, :memo)
   end

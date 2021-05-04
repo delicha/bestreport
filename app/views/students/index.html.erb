@@ -61,9 +61,9 @@
 </div>
 
 <% if current_user.admin %>
-    <%= link_to "エクスポート", reports_path(format: :csv), class: "btn btn-primary mb-3" %>
+    <%= link_to "エクスポート", students_path(format: :csv), class: "btn btn-primary mb-3" %>
 
-    <%= form_with url: import_reports_path, multipart: true, class: 'mb-3' do |f| %>
+    <%= form_with url: import_students_path, multipart: true, class: 'mb-3' do |f| %>
         <%= f.file_field :file, :accept => "text/csv" %>
         <%= f.submit "インポート", class: 'btn btn-primary' %>
     <% end %>

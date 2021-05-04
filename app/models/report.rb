@@ -1,7 +1,17 @@
 class Report < ApplicationRecord
 
+    validates :kind, presence: true
+    validates :subject, presence: true
+    validates :attendance, presence: true
+    validates :homework, presence: true
+    validates :performance, presence: true
+    validates :comment, presence: true
+
+    belongs_to :user
+    belongs_to :student
+
     def self.csv_attributes
-        ["kind", "subject", "description", "attendance", "homework", "performance", "minitest", "comment", "other", "credit", "created_at", "updated_at", "user_id", "student_id"]
+        ["id", "kind", "subject", "description", "attendance", "homework", "performance", "minitest", "comment", "other", "credit", "created_at", "updated_at", "user_id", "student_id"]
     end
 
     def self.generate_csv
@@ -23,22 +33,10 @@ class Report < ApplicationRecord
     end
 
     def self.ransackable_attributes(auth_object = nil)
-    %w[id subject comment id created_at]
+        %w[id subject comment created_at]
     end
 
     def self.ransackable_associations(auth_object = nil)
-    []
+        []
     end
-
-    validates :kind, presence: true
-    validates :subject, presence: true
-    validates :attendance, presence: true
-    validates :homework, presence: true
-    validates :performance, presence: true
-    validates :comment, presence: true
-
-    belongs_to :user
-    belongs_to :student
-
-    
 end
