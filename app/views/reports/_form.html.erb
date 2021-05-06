@@ -43,7 +43,7 @@
       </tr>
       <tr>
         <th class="table-success"><%= f.label :comment %></th>
-        <td colspan="3"><%= f.text_area :comment, rows: 5, class: 'form-control', id: 'report_comment' %></td>
+        <td colspan="3"><%= f.text_area :comment, rows: 5, :required => true, class: 'form-control', id: 'report_comment' %></td>
       </tr>
       <tr>
         <th class="table-success"><%= f.label :other %></th>
@@ -54,8 +54,6 @@
 
   <div class="text-center">
     <%= link_to '生徒一覧', students_path, class: 'btn btn-secondary mr-3' %>
-    <% unless @report.comment == "" %>
-      <%= f.submit nil, class: "btn btn-primary" %>
-    <% end %>
+    <%= f.submit nil, class: "send btn btn-primary" %>
   </div>
 <% end %>
