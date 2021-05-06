@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_21_073456) do
+ActiveRecord::Schema.define(version: 2021_05_06_091412) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,8 @@ ActiveRecord::Schema.define(version: 2021_04_21_073456) do
     t.boolean "mailsend", default: false, null: false
     t.bigint "user_id", null: false
     t.bigint "student_id", null: false
+    t.string "unit_name"
+    t.string "page"
     t.index ["student_id"], name: "index_reports_on_student_id"
     t.index ["user_id"], name: "index_reports_on_user_id"
   end

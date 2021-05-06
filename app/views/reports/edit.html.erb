@@ -25,14 +25,21 @@
         <td><%= f.text_field :subject, value: @report.subject, class: 'form-control', id: 'report_subject' %></td>
       </tr>
       <tr>
-        <th class="table-success"><%= f.label :description %></th>
-        <td><%= f.text_field :description, class: 'form-control', id: 'report_descrition' %></td>
+        <th class="table-success"><%= f.label :attendance %></th>
+        <td><%= f.text_field :attendance, value: @report.attendance, class: 'form-control', id: 'report_attendance' %></td>
         <th class="table-success"><%= f.label :credit %></th>
         <td><%= f.text_field :credit, class: 'form-control', id: 'report_credit' %></td>
       </tr>
       <tr>
-        <th class="table-success"><%= f.label :attendance %></th>
-        <td colspan="3"><%= f.text_field :attendance, value: @report.attendance, class: 'form-control', id: 'report_attendance' %></td>
+        <th class="table-success"><%= f.label :description %></th>
+        <td colspan="3"><%= f.text_field :description, class: 'form-control', id: 'report_descrition' %></td></tr>
+      <tr>
+        <th class="table-success"><%= f.label :unit_name %></th>
+        <td colspan="3"><%= f.text_field :unit_name, class: 'form-control', id: 'report_unit_name' %></td>
+      </tr>
+      <tr>
+        <th class="table-success"><%= f.label :page %></th>
+        <td colspan="3"><%= f.text_field :page, class: 'form-control', id: 'report_page' %></td>
       </tr>
       <tr>
         <th class="table-success"><%= f.label :homework %></th>

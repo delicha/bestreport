@@ -22,14 +22,22 @@
         <td><%= f.select :subject, %i[英語 数学 国語 理科 社会 算数 その他], {selected: ''}, class: 'form-control', id: 'report_subject' %></td>
       </tr>
       <tr>
-        <th class="table-success"><%= f.label :description %></th>
-        <td><%= f.text_field :description, class: 'form-control', id: 'report_descrition' %></td>
+        <th class="table-success"><%= f.label :attendance %></th>
+        <td><%= f.select :attendance, %i[出席 欠席 遅刻], {selected: ''}, class: 'form-control', id: 'report_attendance' %></td>
         <th class="table-success"><%= f.label :credit %></th>
         <td><%= f.text_field :credit, class: 'form-control', id: 'report_credit' %></td>
       </tr>
       <tr>
-        <th class="table-success"><%= f.label :attendance %></th>
-        <td colspan="3"><%= f.select :attendance, %i[出席 欠席 遅刻], {selected: ''}, class: 'form-control', id: 'report_attendance' %></td>
+        <th class="table-success"><%= f.label :description %></th>
+        <td colspan="3"><%= f.text_field :description, class: 'form-control', id: 'report_descrition' %></td>
+      </tr>
+      <tr>
+        <th class="table-success"><%= f.label :unit_name %></th>
+        <td colspan="3"><%= f.text_field :unit_name, class: 'form-control', id: 'report_unit_name' %></td>
+      </tr>
+      <tr>
+        <th class="table-success"><%= f.label :page %></th>
+        <td colspan="3"><%= f.text_field :page, class: 'form-control', id: 'report_page' %></td>
       </tr>
       <tr>
         <th class="table-success"><%= f.label :homework %></th>

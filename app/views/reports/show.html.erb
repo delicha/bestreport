@@ -11,8 +11,8 @@
         <tr>
             <th class="table-success"><%= Report.human_attribute_name(:teacher) %></th>
             <td><%= @report.user.name %></td>
-            <th class="table-success"><%= Report.human_attribute_name(:credit) %></th>
-            <td><%= simple_format(h(@report.credit), sanitize: false, wrapper_tag: "div") %></td>
+            <th class="table-success"><%= Report.human_attribute_name(:attendance) %></th>
+            <td colspan="3"><%= @report.attendance %></td>
         </tr>
         <tr>
             <th class="table-success"><%= Report.human_attribute_name(:kind) %></th>
@@ -21,12 +21,18 @@
             <td><%= @report.subject %></td>
         </tr>
         <tr>
+            <th class="table-success"><%= Report.human_attribute_name(:credit) %></th>
+            <td><%= simple_format(h(@report.credit), sanitize: false, wrapper_tag: "div") %></td>
             <th class="table-success"><%= Report.human_attribute_name(:description) %></th>
-            <td colspan="3"><%= simple_format(h(@report.description), sanitize: false, wrapper_tag: "div") %></td>
+            <td><%= simple_format(h(@report.description), sanitize: false, wrapper_tag: "div") %></td>
         </tr>
         <tr>
-            <th class="table-success"><%= Report.human_attribute_name(:attendance) %></th>
-            <td colspan="3"><%= @report.attendance %></td>
+            <th class="table-success"><%= Report.human_attribute_name(:unit_name) %></th>
+            <td colspan="3"><%= @report.unit_name %></td>
+        </tr>
+        <tr>
+            <th class="table-success"><%= Report.human_attribute_name(:page) %></th>
+            <td colspan="3"><%= @report.page %></td>
         </tr>
         <tr>
             <th class="table-success"><%= Report.human_attribute_name(:homework) %></th>

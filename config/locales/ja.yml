@@ -18,6 +18,8 @@ ja:
         subject: 教科
         description: 備考
         attendance: 出欠
+        unit_name: 指導単元
+        page: テキスト範囲
         homework: 宿題達成度
         performance: 授業理解度
         minitest: ミニテスト
