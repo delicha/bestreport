@@ -46,6 +46,7 @@ ja:
         id: ID
         name: 生徒
         kana: カナ
+        grade: 学年
         email: メールアドレス
         birthdate: 誕生日
         school: 学校

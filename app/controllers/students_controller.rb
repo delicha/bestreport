@@ -1,5 +1,5 @@
 class StudentsController < ApplicationController
-  before_action :set_student, only: [:show, :edit, :update, :destroy]
+  before_action :set_student, only: [:show, :edit, :update, :destroy, :cal_birth]
 
   def index
     @q = Student.all.ransack(params[:q])
@@ -12,6 +12,7 @@ class StudentsController < ApplicationController
   end
 
   def show
+    @birth = cal_birth
   end
 
   def new
@@ -55,5 +56,13 @@ class StudentsController < ApplicationController
 
   private def set_student
     @student = Student.find(params[:id])
+  end
+
+  private def cal_birth
+    @birth = @student.birthdate.to_s
+    birthday = Date.parse(@birth) 
+    @age = (Date.today.strftime('%Y%m%d').to_i - birthday.strftime('%Y%m%d').to_i) / 10000
+    @today = Date.today.strftime('%Y%m%d').to_i
+    @bday = birthday.strftime('%Y%m%d').to_i
   end
 end
