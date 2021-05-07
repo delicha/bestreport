@@ -45,7 +45,7 @@
             <td><%= student.kana %></td>
             <td><%= student.school %></td>
             <td>
-                <% birthday = Date.parse('20070507')  %>
+                <% birthday = Date.parse(student.birthdate.to_s)  %>
                 <% @age = (Date.today.strftime('%Y%m%d').to_i - birthday.strftime('%Y%m%d').to_i) / 10000 %>
                 <% @today = Date.today.strftime('%Y%m%d').to_i %>
                 <% @bday = birthday.strftime('%Y%m%d').to_i %>
