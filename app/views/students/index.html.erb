@@ -45,11 +45,9 @@
             <td><%= student.kana %></td>
             <td><%= student.school %></td>
             <td>
-                <% @birth = student.birthdate.to_s %>
-                <% @birthday = Date.parse(@birth)  %>
-                <% @age = (Date.today.strftime('%Y%m%d').to_i - @birthday.strftime('%Y%m%d').to_i) / 10000 %>
+                <% @age = (Date.today.strftime('%Y%m%d').to_i - (Date.parse(student.birthdate.to_s)).strftime('%Y%m%d').to_i) / 10000 %>
                 <% @today = Date.today.strftime('%Y%m%d').to_i %>
-                <% @bday = @birthday.strftime('%Y%m%d').to_i %>
+                <% @bday = (Date.parse(student.birthdate.to_s)).strftime('%Y%m%d').to_i %>
                 <% if (@age == 17) && (@bday < @today) %>
                     高３
                 <% elsif (@age == 16) && (@bday < @today) %>
