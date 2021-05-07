@@ -46,8 +46,37 @@
             <td><%= student.school %></td>
             <td>
                 <% @birth = student.birthdate.to_s %>
-                <% birthday = Date.parse(@birth)  %>
-                
+                <% @birthday = Date.parse(@birth)  %>
+                <% @age = (Date.today.strftime('%Y%m%d').to_i - @birthday.strftime('%Y%m%d').to_i) / 10000 %>
+                <% @today = Date.today.strftime('%Y%m%d').to_i %>
+                <% @bday = @birthday.strftime('%Y%m%d').to_i %>
+                <% if (@age == 17) && (@bday < @today) %>
+                    高３
+                <% elsif (@age == 16) && (@bday < @today) %>
+                    高２
+                <% elsif (@age == 15) && (@bday < @today) %>
+                    高１ 
+                <% elsif (@age == 14) && (@bday < @today) %>
+                    中３ 
+                <% elsif (@age == 13) && (@bday < @today) %>
+                    中２ 
+                <% elsif (@age == 12) && (@bday < @today) %>
+                    中１ 
+                <% elsif (@age == 11) && (@bday < @today) %>
+                    小６ 
+                <% elsif (@age == 10) && (@bday < @today) %>
+                    小５
+                <% elsif (@age == 9) && (@bday < @today) %>
+                    小４
+                <% elsif (@age == 8) && (@bday < @today) %>
+                    小３
+                <% elsif (@age == 7) && (@bday < @today) %>
+                    小２
+                <% elsif (@age == 6) && (@bday < @today) %>
+                    小１
+                <% else  %>
+                    その他
+                <% end %>
             </td>
             <td><%= student.birthdate %></td>
             <% if current_user.admin %>
