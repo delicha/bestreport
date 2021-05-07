@@ -68,7 +68,7 @@ Student.create!(
     name: '松本  麻央',
     kana: 'マツモト  マオ',
     email: 'iwakibestone1@gmail.com',
-    birthdate: '2009/06/02',
+    birthdate: '20090602',
     school: '御厩小',
     memo: ''
 )
