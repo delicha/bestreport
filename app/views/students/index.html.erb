@@ -46,6 +46,7 @@
             <td><%= student.school %></td>
             <td>
                 <% @birth = student.birthdate.to_s %>
+                <% birthday = Date.parse(@birth)  %>
                 
             </td>
             <td><%= student.birthdate %></td>
