@@ -4,7 +4,7 @@
     <%= link_to '新規指導報告書登録', new_report_path(student_id: @student.id), class: 'btn btn-primary mb-3' %>
 </div>
 
-<table class="table table-hover table-bordered shadow-sm my-3">
+<table class="table table-striped table-hover table-bordered shadow-sm my-3">
     <tbody>
         <tr>
             <th class="table-primary"><%= Student.human_attribute_name(:id) %></th>
