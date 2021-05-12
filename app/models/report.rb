@@ -11,7 +11,7 @@ class Report < ApplicationRecord
     belongs_to :student
 
     def self.csv_attributes
-        ["id", "kind", "subject", "description", "attendance", "unit_name", "page", "homework", "performance", "minitest", "next_hw", "comment", "other", "credit", "created_at", "updated_at", "user_id", "student_id"]
+        ["id", "kind", "subject", "description", "attendance", "unit_name", "page", "homework", "performance", "minitest", "nexthw", "comment", "other", "credit", "created_at", "updated_at", "user_id", "student_id"]
     end
 
     def self.generate_csv
