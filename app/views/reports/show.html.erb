@@ -49,6 +49,10 @@
             <td colspan="3"><%= raw auto_link(simple_format(h(@report.comment), sanitize: false, wrapper_tag: "div")) %></td>
         </tr>
         <tr>
+            <th class="table-success"><%= Report.human_attribute_name(:nexthw) %></th>
+            <td colspan="3"><%= simple_format(h(@report.nexthw), sanitize: false, wrapper_tag: "div") %></td>
+        </tr>
+        <tr>
             <th class="table-success"><%= Report.human_attribute_name(:other) %></th>
             <td colspan="3"><%= raw auto_link(simple_format(h(@report.other), sanitize: false, wrapper_tag: "div")) %></td>
         </tr>

@@ -61,7 +61,7 @@ class ReportsController < ApplicationController
   end
 
   private def report_params
-    params.require(:report).permit(:student_id, :kind, :subject, :description, :attendance, :unit_name, :page, :homework, :performance, :minitest, :comment, :other, :credit, :mailsend, :user_id)
+    params.require(:report).permit(:student_id, :kind, :subject, :description, :attendance, :unit_name, :page, :homework, :performance, :minitest, :next_hw, :comment, :other, :credit, :mailsend, :user_id)
   end
 
   private def set_report

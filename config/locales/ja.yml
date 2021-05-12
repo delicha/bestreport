@@ -24,7 +24,8 @@ ja:
         performance: 授業理解度
         minitest: ミニテスト
         comment: コメント
-        other: その他
+        nexthw: 今回の宿題
+        other: 連絡事項
         credit: コマ数
         mailsend: 送信
         created_at: 登録日
