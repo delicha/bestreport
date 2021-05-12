@@ -1,5 +1,6 @@
 class StudentsController < ApplicationController
-  before_action :set_student, only: [:show, :edit, :update, :destroy, :cal_birth]
+  before_action :set_student, only: [:show, :edit, :update, :destroy]
+  before_action :cal_birth, only: [:show]
 
   def index
     @q = Student.all.ransack(params[:q])
