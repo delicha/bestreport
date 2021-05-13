@@ -84,6 +84,7 @@
             <th><%= Report.human_attribute_name(:id) %></th>
             <th><%= Report.human_attribute_name(:subject) %></th>
             <th><%= User.human_attribute_name(:name) %></th>
+            <th><%= Report.human_attribute_name(:performance) %></th>
             <th><%= Report.human_attribute_name(:created_at) %></th>
             <th>送信</th>
             <th>操作</th>
@@ -95,6 +96,7 @@
             <td><%= report.id %></td>
             <td><%= report.subject %></td>
             <td><%= report.user.name %></td>
+            <td><%= report.performance %></td>
             <td><%= report.created_at.strftime("%Y年%m月%d日" + "(%a)" + " %H:%M") %></td>
             <td class="text-center text-danger font-weight-bold">
                 <% if report.mailsend == false %>

@@ -30,6 +30,7 @@
             <th><%= Student.human_attribute_name(:name) %></th>
             <th><%= User.human_attribute_name(:name) %></th>
             <th><%= sort_link(@q, :subject) %></th>
+            <th><%= Report.human_attribute_name(:performance) %></th>
             <th><%= sort_link(@q, :created_at) %></th>
             <th>送信</th>
             <th>操作</th>
@@ -46,6 +47,7 @@
                 <td><%= report.user.name %></td>
             <% end %>
             <td><%= report.subject %></td>
+            <td><%= report.performance %></td>
             <td><%= report.created_at.strftime("%Y年%m月%d日" + "(%a)" + " %H:%M")  %></td>
             <td class="text-center text-danger font-weight-bold">
                 <% if report.mailsend == false %>
