@@ -62,8 +62,8 @@ class StudentsController < ApplicationController
   private def cal_birth
     @birth = @student.birthdate.to_s
     birthday = Date.parse(@birth) 
-    @age = (Date.today.strftime('%Y%m%d').to_i - birthday.strftime('%Y%m%d').to_i) / 10000
-    @today = Date.today.strftime('%Y%m%d').to_i
-    @bday = birthday.strftime('%Y%m%d').to_i
+    today = Date.today
+    toDate = Time.mktime(today.year - (today.month < 4 ? 1 : 0), 4, 1)
+    @age = (toDate.strftime('%Y%m%d').to_i - birthday.strftime('%Y%m%d').to_i) / 10000
   end
 end
