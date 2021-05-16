@@ -33,7 +33,7 @@
       </tr>
       <tr>
         <th class="table-success"><%= f.label :unit_name %></th>
-        <td colspan="3"><%= f.text_field :unit_name, class: 'form-control', id: 'report_unit_name' %></td>
+        <td colspan="3"><%= f.text_field :unit_name, placeholder: '教材名を必ず記入してください。', class: 'form-control', id: 'report_unit_name' %></td>
       </tr>
       <tr>
         <th class="table-success"><%= f.label :page %></th>
@@ -41,7 +41,7 @@
       </tr>
       <tr>
         <th class="table-success"><%= f.label :homework %></th>
-        <td><%= f.select :homework, %i[〜20％ 〜40％ 〜60％ 〜80％ 〜100％ 忘れた], {selected: '〜60％'}, class: 'form-control', id: 'report_homework' %></td>
+        <td><%= f.select :homework, %i[〜20％ 〜40％ 〜60％ 〜80％ 〜100％ 忘れた 前回宿題無し], {selected: '〜60％'}, class: 'form-control', id: 'report_homework' %></td>
         <th class="table-success"><%= f.label :performance %></th>
         <td><%= f.select :performance, %i[〜20％ 〜40％ 〜60％ 〜80％ 〜100％], {selected: '〜60％'}, class: 'form-control', id: 'report_performance' %></td>
       </tr>
