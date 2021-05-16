@@ -1,6 +1,6 @@
 <h1>生徒一覧</h1>
 <% if current_user.admin %>
-    <%= link_to "新規登録", new_student_path, class: "btn btn-primary my-3 mx-3" %>
+    <%= link_to "生徒を新しく作成", new_student_path, class: "btn btn-warning font-weight-bold my-3 mx-3" %>
 <% end %>
 <%= search_form_for @q, class: 'mb-5' do |f| %>
     <div class="form-group row">
