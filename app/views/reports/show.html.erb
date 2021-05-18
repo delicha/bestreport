@@ -4,7 +4,7 @@
     <tbody>
         <tr>
             <th class="table-success"><%= Student.human_attribute_name(:name) %></th>
-            <td><%= @report.student.name %></td>
+            <td><%= link_to @report.student.name, student_path(@report.student_id) %></td>
             <th class="table-success"><%= Report.human_attribute_name(:teacher) %></th>
             <td><%= @report.user.name %></td>
         </tr>
