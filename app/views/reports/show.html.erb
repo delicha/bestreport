@@ -64,7 +64,7 @@
         </tr>
     </tbody>
 </table>
-<div class="text-center">
+<div class="text-center print">
     <%= link_to "戻る", :back, class: "btn btn-secondary" %>
     <% if (@report.user_id == current_user.id) || current_user.admin %>
         <% if @report.mailsend == false %>
