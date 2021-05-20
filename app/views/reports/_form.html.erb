@@ -25,7 +25,7 @@
         <th class="table-success"><%= f.label :attendance %></th>
         <td><%= f.select :attendance, %i[出席 欠席 遅刻], {selected: ''}, class: 'form-control', id: 'report_attendance' %></td>
         <th class="table-success"><%= f.label :credit %></th>
-        <td><%= f.text_field :credit, class: 'form-control', id: 'report_credit' %></td>
+        <td><%= f.text_field :credit, placeholder: '例（季節講習）：5/15コマ', class: 'form-control', id: 'report_credit' %></td>
       </tr>
       <tr>
         <th class="table-success"><%= f.label :description %></th>
@@ -37,7 +37,7 @@
       </tr>
       <tr>
         <th class="table-success"><%= f.label :page %></th>
-        <td colspan="3"><%= f.text_field :page, placeholder: '教材名を必ず記入してください。', class: 'form-control', id: 'report_page' %></td>
+        <td colspan="3"><%= f.text_field :page, value: 'フォレスタ ワーク P 〜', class: 'form-control', id: 'report_page' %></td>
       </tr>
       <tr>
         <th class="table-success"><%= f.label :homework %></th>
@@ -49,7 +49,7 @@
         <th class="table-success"><%= f.label :minitest %></th>
         <td><%= f.text_area :minitest, rows: 2, class: 'form-control', id: 'report_minitest' %></td>
         <th class="table-success"><%= f.label :nexthw %></th>
-        <td><%= f.text_area :nexthw, rows: 2, class: 'form-control', id: 'report_nexthw' %></td>
+        <td><%= f.text_area :nexthw, rows: 2, value: 'TryのX直しとEX', class: 'form-control', id: 'report_nexthw' %></td>
       </tr>
       <tr>
         <th class="table-success"><%= f.label :comment %></th>
