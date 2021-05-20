@@ -1,7 +1,15 @@
 .logo {
     text-shadow: -1px 1px 1px rgba(0, 0, 0, 0.3);
     letter-spacing: 0.1em;
-    font-size: 170%;
+    font-size: 165%;
+}
+
+.logo-kana {
+    color: #fff;
+    position: absolute;
+    top: 45px;
+    left: 42px;
+    letter-spacing: 0.3em;
 }
 
 h1 {
