@@ -1,7 +1,7 @@
 <h1>生徒の詳細</h1>
 
-<div class="nav justify-content-left">
-    <%= link_to '報告書を新しく作成', new_report_path(student_id: @student.id), class: 'btn btn-warning font-weight-bold my-3' %>
+<div class="text-center">
+    <%= link_to '報告書を新しく作成', new_report_path(student_id: @student.id), class: 'btn btn-warning font-weight-bold my-3 btn-lg shadow' %>
 </div>
 
 <table class="table table-striped table-hover table-bordered shadow-sm my-3">
@@ -105,8 +105,8 @@
                  &check;
                 <% end %>
             </td>
-            <td class="text-center">
-                <%= link_to "詳細", report_path(report), class: "btn btn-primary mr-3" %>
+            <td class="d-fl">
+                <%= link_to "詳細", report_path(report), class: "btn btn-primary" %>
                 <% if (report.user_id == current_user.id) || current_user.admin %>
                     <%= link_to "削除", report, method: :delete, remote: true, data: { confirm: "報告書「#{report.id}」を削除します。よろしいですか？"}, class: "btn btn-danger" %>
                 <% end %>
