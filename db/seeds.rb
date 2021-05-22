@@ -25,7 +25,7 @@ User.create!(
     subject: '英語',
     password: 'pass',
     password_confirmation: 'pass',
-    admin: false
+    admin: true
 )
 
 User.create!(
