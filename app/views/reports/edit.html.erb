@@ -65,7 +65,7 @@
       <tr>
           <th class="table-danger"><%= f.label :mailsend, '送信ステータス', class: "form-check-label" %></th>
           <td colspan="3">
-              <%= f.check_box :mailsend, class: "form-check-input ml-1" %>
+              <%= f.check_box :mailsend, class: "form-check-input ml-1", id: 'report_mailsend' %>
               <span class="ml-4">送信する場合はチェックを入れる</span>
           </td>
       </tr>

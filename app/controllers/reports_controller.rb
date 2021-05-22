@@ -36,7 +36,7 @@ class ReportsController < ApplicationController
     if @report.update(report_params)
       if @report.mailsend == true
         ReportMailer.creation_email(@report).deliver_now
-        redirect_to reports_url, notice: "報告書「#{@report.id}」を送信しました。"
+        redirect_to unsent_path, notice: "報告書「#{@report.id}」を送信しました。"
       else
         redirect_to reports_url, notice: "報告書「#{@report.id}」を更新しました。"
       end
