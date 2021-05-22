@@ -18,6 +18,15 @@ h1 {
     padding-left: 10px;
 }
 
+h2 {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-top: 1px solid green;
+    border-bottom: 1px dotted green;
+    font-weight: bold;
+    letter-spacing: 0.15em;
+}
+
 nav {
     background-color: #017f25;
     background-image: image-url('dog-icon.png');
@@ -28,12 +37,10 @@ nav {
 
 .container {
     margin-top: 90px;
-    margin-bottom: 120px;
 }
 
 footer {
     position: left bottom fixed;
-    margin-top: 50px;
     background-color: #017f25;
 }
 
@@ -45,15 +52,19 @@ footer {
 
 .grad-img {
     max-width: 100%;
+    margin-top: 10px;
+    margin-bottom: 80px;
     height: auto;
-    margin-left: 5px;
-    margin-right: 5px;
 }
 
 @media screen and (max-width:575px) {
 
     h1 {
         font-size: 140%;
+    }
+
+    h2 {
+        font-size: 120%;
     }
 
     .navbar.navbar-2 .navbar-toggler-icon {
