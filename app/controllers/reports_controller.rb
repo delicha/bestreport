@@ -3,7 +3,11 @@ class ReportsController < ApplicationController
   before_action :set_student_in_report
 
   def index
-    @q = Report.all.ransack(params[:q])
+    if current_user.admin
+      @q = Report.all.ransack(params[:q])
+    else
+      @q = current_user.reports.all.ransack(params[:q])
+    end
     @reports = @q.result(distinct: true).page(params[:page]).per(10).order(id: :DESC)
 
     respond_to do |format|
