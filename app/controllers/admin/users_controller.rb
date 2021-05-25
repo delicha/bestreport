@@ -15,7 +15,7 @@ class Admin::UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @user.reports.order(created_at: :DESC)
+    @report = Report.order(created_at: :DESC)
   end
 
   def create
