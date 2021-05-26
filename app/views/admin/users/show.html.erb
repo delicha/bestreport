@@ -1,47 +1,70 @@
 <h1>講師の詳細</h1>
 
-<table class="table table-hover table-bordered shadow-sm my-3">
-    <tbody>
-        <tr>
-            <th class="table-danger"><%= User.human_attribute_name(:id) %></th>
-            <td><%= @user.id %></td>
-        </tr>
-        <tr>
-            <th class="table-danger"><%= User.human_attribute_name(:name) %></th>
-            <td><%= @user.name %></td>
-        </tr>
-        <tr>
-            <th class="table-danger"><%= User.human_attribute_name(:kana) %></th>
-            <td><%= @user.kana %></td>
-        </tr>
-        <tr>
-            <th class="table-danger"><%= User.human_attribute_name(:email) %></th>
-            <td><%= @user.email %></td>
-        </tr>
-        <tr>
-            <th class="table-danger"><%= User.human_attribute_name(:subject) %></th>
-            <td><%= @user.subject %></td>
-        </tr>
-        <tr>
-            <th class="table-danger"><%= User.human_attribute_name(:admin) %></th>
-            <td><%= @user.admin? ? 'あり' : 'なし' %></td>
-        </tr>
-        <tr>
-            <th class="table-danger"><%= User.human_attribute_name(:created_at) %></th>
-            <td><%= @user.created_at.strftime("%Y年%m月%d日 %H:%M") %></td>
-        </tr>
-        <tr>
-            <th class="table-danger"><%= User.human_attribute_name(:updated_at) %></th>
-            <td><%= @user.updated_at.strftime("%Y年%m月%d日 %H:%M") %></td>
-        </tr>
-    </tbody>
-</table>
-<div class="text-center">
-    <%= link_to "編集", edit_admin_user_path, class: "btn btn-primary mx-3" %>
-    <%= link_to "削除", [:admin, @user], method: :delete, data: { confirm: "講師「#{@user.id}先生」を削除します。よろしいですか？"}, class: "btn btn-danger" %>
-</div>
-
+<% if current_user.admin %>
+    <table class="table table-hover table-bordered shadow-sm my-3">
+        <tbody>
+            <tr>
+                <th class="table-danger"><%= User.human_attribute_name(:id) %></th>
+                <td><%= @user.id %></td>
+            </tr>
+            <tr>
+                <th class="table-danger"><%= User.human_attribute_name(:name) %></th>
+                <td><%= @user.name %></td>
+            </tr>
+            <tr>
+                <th class="table-danger"><%= User.human_attribute_name(:kana) %></th>
+                <td><%= @user.kana %></td>
+            </tr>
+            <tr>
+                <th class="table-danger"><%= User.human_attribute_name(:email) %></th>
+                <td><%= @user.email %></td>
+            </tr>
+            <tr>
+                <th class="table-danger"><%= User.human_attribute_name(:subject) %></th>
+                <td><%= @user.subject %></td>
+            </tr>
+            <tr>
+                <th class="table-danger"><%= User.human_attribute_name(:admin) %></th>
+                <td><%= @user.admin? ? 'あり' : 'なし' %></td>
+            </tr>
+            <tr>
+                <th class="table-danger"><%= User.human_attribute_name(:created_at) %></th>
+                <td><%= @user.created_at.strftime("%Y年%m月%d日 %H:%M") %></td>
+            </tr>
+            <tr>
+                <th class="table-danger"><%= User.human_attribute_name(:updated_at) %></th>
+                <td><%= @user.updated_at.strftime("%Y年%m月%d日 %H:%M") %></td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="text-center">
+        <%= link_to "編集", edit_admin_user_path, class: "btn btn-primary mx-3" %>
+        <%= link_to "削除", [:admin, @user], method: :delete, data: { confirm: "講師「#{@user.id}先生」を削除します。よろしいですか？"}, class: "btn btn-danger" %>
+    </div>
+<% else %>
+    <table class="table table-hover table-bordered shadow-sm my-3">
+        <tbody>
+            <tr>
+                <th class="table-danger"><%= User.human_attribute_name(:name) %></th>
+                <td><%= @user.name %></td>
+            </tr>
+            <tr>
+                <th class="table-danger"><%= User.human_attribute_name(:kana) %></th>
+                <td><%= @user.kana %></td>
+            </tr>
+            <tr>
+                <th class="table-danger"><%= User.human_attribute_name(:subject) %></th>
+                <td><%= @user.subject %></td>
+            </tr>
+        </tbody>
+    </table>
+<% end %>
 <h2 class="mt-4">講師報告書履歴</h2>
+
+<div class="my-3">
+    <%= paginate @reports %>
+    <%= page_entries_info @reports %>
+</div>
 
 <table class="table table-striped table-hover table-bordered shadow-sm my-3">
     <thead class="thead-default">

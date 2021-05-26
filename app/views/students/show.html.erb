@@ -6,68 +6,121 @@
 
 <table class="table table-striped table-hover table-bordered shadow-sm my-3">
     <tbody>
-        <tr>
-            <th class="table-primary"><%= Student.human_attribute_name(:id) %></th>
-            <td><%= @student.id %></td>
-            <th class="table-primary">報告書合計</th>
-            <td><%= @student.reports.count %> 枚</td>
-        </tr>
-        <tr>
-            <th class="table-primary"><%= Student.human_attribute_name(:name) %></th>
-            <td><%= @student.name %></td>
-            <th class="table-primary"><%= Student.human_attribute_name(:kana) %></th>
-            <td><%= @student.kana %></td>
-        </tr>
-        <tr>
-            <th class="table-primary"><%= Student.human_attribute_name(:birthdate) %></th>
-            <td><%= @student.birthdate%></td>
-            <th class="table-primary"><%= Student.human_attribute_name(:grade) %></th>
-            <td>
-                <% if @age == 17 %>
-                    高３
-                <% elsif @age == 16 %>
-                    高２
-                <% elsif @age == 15 %>
-                    高１
-                <% elsif @age == 14 %>
-                    中３
-                <% elsif @age == 13 %>
-                    中２
-                <% elsif @age == 12 %>
-                    中１
-                <% elsif @age == 11 %>
-                    小６
-                <% elsif @age == 10 %>
-                    小５
-                <% elsif @age == 9 %>
-                    小４
-                <% elsif @age == 8 %>
-                    小３
-                <% elsif @age == 7 %>
-                    小２
-                <% elsif @age == 6 %>
-                    小１
-                <% else  %>
-                    その他
-                <% end %>
-            </td>
-        </tr>
-        <tr>
-            <th class="table-primary"><%= Student.human_attribute_name(:school) %></th>
-            <td><%= @student.school %></td>
-            <th class="table-primary"><%= Student.human_attribute_name(:email) %></th>
-            <td><%= @student.email %></td>
-        </tr>
-        <tr>
-            <th class="table-primary"><%= Student.human_attribute_name(:memo) %></th>
-            <td colspan="3"><%= @student.memo %></td>
-        </tr>
-        <tr>
-            <th class="table-primary"><%= Student.human_attribute_name(:created_at) %></th>
-            <td><%= @student.created_at.strftime("%Y年%m月%d日 %H:%M") %></td>
-            <th class="table-primary"><%= Student.human_attribute_name(:updated_at) %></th>
-            <td><%= @student.updated_at.strftime("%Y年%m月%d日 %H:%M") %></td>
-        </tr>
+        <% if current_user.admin %>
+            <tr>
+                <th class="table-primary"><%= Student.human_attribute_name(:id) %></th>
+                <td><%= @student.id %></td>
+                <th class="table-primary">報告書合計</th>
+                <td><%= @student.reports.count %> 枚</td>
+            </tr>
+            <tr>
+                <th class="table-primary"><%= Student.human_attribute_name(:name) %></th>
+                <td><%= @student.name %></td>
+                <th class="table-primary"><%= Student.human_attribute_name(:kana) %></th>
+                <td><%= @student.kana %></td>
+            </tr>
+            <tr>
+                <th class="table-primary"><%= Student.human_attribute_name(:birthdate) %></th>
+                <td><%= @student.birthdate%></td>
+                <th class="table-primary"><%= Student.human_attribute_name(:grade) %></th>
+                <td>
+                    <% if @age == 17 %>
+                        高３
+                    <% elsif @age == 16 %>
+                        高２
+                    <% elsif @age == 15 %>
+                        高１
+                    <% elsif @age == 14 %>
+                        中３
+                    <% elsif @age == 13 %>
+                        中２
+                    <% elsif @age == 12 %>
+                        中１
+                    <% elsif @age == 11 %>
+                        小６
+                    <% elsif @age == 10 %>
+                        小５
+                    <% elsif @age == 9 %>
+                        小４
+                    <% elsif @age == 8 %>
+                        小３
+                    <% elsif @age == 7 %>
+                        小２
+                    <% elsif @age == 6 %>
+                        小１
+                    <% else  %>
+                        その他
+                    <% end %>
+                </td>
+            </tr>
+            <tr>
+                <th class="table-primary"><%= Student.human_attribute_name(:school) %></th>
+                <td><%= @student.school %></td>
+                <th class="table-primary"><%= Student.human_attribute_name(:email) %></th>
+                <td><%= @student.email %></td>
+            </tr>
+            <tr>
+                <th class="table-primary"><%= Student.human_attribute_name(:memo) %></th>
+                <td colspan="3"><%= @student.memo %></td>
+            </tr>
+            <tr>
+                <th class="table-primary"><%= Student.human_attribute_name(:created_at) %></th>
+                <td><%= @student.created_at.strftime("%Y年%m月%d日 %H:%M") %></td>
+                <th class="table-primary"><%= Student.human_attribute_name(:updated_at) %></th>
+                <td><%= @student.updated_at.strftime("%Y年%m月%d日 %H:%M") %></td>
+            </tr>
+        <% else %>
+            <tr>
+                <th class="table-primary"><%= Student.human_attribute_name(:name) %></th>
+                <td><%= @student.name %></td>
+                <th class="table-primary"><%= Student.human_attribute_name(:kana) %></th>
+                <td><%= @student.kana %></td>
+            </tr>
+            <tr>
+                <th class="table-primary"><%= Student.human_attribute_name(:grade) %></th>
+                <td>
+                    <% if @age == 17 %>
+                        高３
+                    <% elsif @age == 16 %>
+                        高２
+                    <% elsif @age == 15 %>
+                        高１
+                    <% elsif @age == 14 %>
+                        中３
+                    <% elsif @age == 13 %>
+                        中２
+                    <% elsif @age == 12 %>
+                        中１
+                    <% elsif @age == 11 %>
+                        小６
+                    <% elsif @age == 10 %>
+                        小５
+                    <% elsif @age == 9 %>
+                        小４
+                    <% elsif @age == 8 %>
+                        小３
+                    <% elsif @age == 7 %>
+                        小２
+                    <% elsif @age == 6 %>
+                        小１
+                    <% else  %>
+                        その他
+                    <% end %>
+                </td>
+                <th class="table-primary">報告書合計</th>
+                <td><%= @student.reports.count %> 枚</td>
+            </tr>
+            <tr>
+                <th class="table-primary"><%= Student.human_attribute_name(:school) %></th>
+                <td><%= @student.school %></td>
+                <th class="table-primary"><%= Student.human_attribute_name(:created_at) %></th>
+                <td><%= @student.created_at.strftime("%Y年%m月%d日 %H:%M") %></td>
+            </tr>
+            <tr>
+                <th class="table-primary"><%= Student.human_attribute_name(:memo) %></th>
+                <td colspan="3"><%= @student.memo %></td>
+            </tr>
+        <% end %>
     </tbody>
 </table>
 
@@ -76,6 +129,11 @@
     <%= link_to "編集", edit_student_path, class: "btn btn-primary mx-3" %>
     <%= link_to "削除", @student, method: :delete, data: { confirm: "生徒「#{@student.id}」を削除します。よろしいですか？"}, class: "btn btn-danger" %>
 <% end %>
+</div>
+
+<div class="my-3">
+    <%= paginate @reports %>
+    <%= page_entries_info @reports %>
 </div>
 
 <table class="table table-hover table-bordered shadow-sm my-4">

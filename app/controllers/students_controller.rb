@@ -14,6 +14,7 @@ class StudentsController < ApplicationController
 
   def show
     @birth = cal_birth
+    @reports = @student.reports.page(params[:page]).per(5).order('created_at DESC')
   end
 
   def new

@@ -1,41 +1,31 @@
 User.create!(
     name: '山本  昇平',
     kana: 'ヤマモト  ショウヘイ',
-    email: 'yamamoto@email.com',
+    email: 'ya@email.com',
     subject: '英語',
-    password: 'pass',
-    password_confirmation: 'pass',
+    password: 'best',
+    password_confirmation: 'best',
     admin: true
 )
 
 User.create!(
     name: '川畑  歩美',
     kana: 'カワバタ  アユミ',
-    email: 'kawabata@email.com',
+    email: 'ka@email.com',
     subject: '英語 国語 数学',
-    password: 'pass',
-    password_confirmation: 'pass',
+    password: 'best',
+    password_confirmation: 'best',
     admin: true
 )
 
 User.create!(
     name: 'ピチクール  仁香',
     kana: 'ピチクール  ニカ',
-    email: 'nika@email.com',
+    email: 'ni@email.com',
     subject: '英語',
-    password: 'pass',
-    password_confirmation: 'pass',
+    password: 'best',
+    password_confirmation: 'best',
     admin: true
-)
-
-User.create!(
-    name: 'ピチクール  仁香',
-    kana: 'ピチクール  ニカ',
-    email: 'eccnika@outlook.jp',
-    subject: '英語',
-    password: 'pass',
-    password_confirmation: 'pass',
-    admin: false
 )
 
 User.create!(
@@ -123,6 +113,16 @@ User.create!(
     kana: 'シラエ　イツキ',
     email: 'shirae@email.com',
     subject: '英語 数学',
+    password: 'pass',
+    password_confirmation: 'pass',
+    admin: false
+)
+
+User.create!(
+    name: '荻野　凌',
+    kana: 'オギノ　リョウ',
+    email: 'ogino@email.com',
+    subject: '数学　英語',
     password: 'pass',
     password_confirmation: 'pass',
     admin: false
