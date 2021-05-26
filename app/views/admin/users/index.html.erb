@@ -7,26 +7,42 @@
 <table class="table table-striped table-hover table-bordered shadow-sm my-3">
     <thead class="thead-default">
         <tr class="table-danger text-center">
-            <th><%= User.human_attribute_name(:name) %></th>
-            <th><%= User.human_attribute_name(:kana) %></th>
-            <th><%= User.human_attribute_name(:email) %></th>
-            <th><%= User.human_attribute_name(:subject) %></th>
-            <th><%= User.human_attribute_name(:admin) %></th>
-            <th>操作</th>
+            <% if current_user.admin %>
+                <th><%= User.human_attribute_name(:name) %></th>
+                <th><%= User.human_attribute_name(:kana) %></th>
+                <th><%= User.human_attribute_name(:email) %></th>
+                <th><%= User.human_attribute_name(:subject) %></th>
+                <th><%= User.human_attribute_name(:admin) %></th>
+                <th>操作</th>
+            <% else %>
+                <th><%= User.human_attribute_name(:name) %></th>
+                <th><%= User.human_attribute_name(:kana) %></th>
+                <th><%= User.human_attribute_name(:subject) %></th>
+                <th>操作</th>
+            <% end %>
         </tr>
     </thead>
     <tbody>
     <% @users.each do |user| %>
         <tr>
-            <td><%= link_to user.name, [:admin, user] %></td>
-            <td><%= user.kana %></td>
-            <td><%= user.email %></td>
-            <td><%= user.subject %></td>
-            <td class="text-center font-weight-bold"><%= user.admin? ? '有' : '無' %></td>
-            <td class="d-fl">
-                <%= link_to "詳細", admin_user_path(user), class: "btn btn-primary" %>
-                <%= link_to "編集", edit_admin_user_path(user), class: "btn btn-secondary" %>
-            </td>
+            <% if current_user.admin %>
+                <td><%= link_to user.name, [:admin, user] %></td>
+                <td><%= user.kana %></td>
+                <td><%= user.email %></td>
+                <td><%= user.subject %></td>
+                <td class="text-center font-weight-bold"><%= user.admin? ? '有' : '無' %></td>
+                <td class="d-fl">
+                    <%= link_to "詳細", admin_user_path(user), class: "btn btn-primary" %>
+                    <%= link_to "編集", edit_admin_user_path(user), class: "btn btn-secondary" %>
+                </td>
+            <% else %>
+                <td><%= link_to user.name, [:admin, user] %></td>
+                <td><%= user.kana %></td>
+                <td><%= user.subject %></td>
+                <td class="d-fl">
+                    <%= link_to "詳細", admin_user_path(user), class: "btn btn-primary" %>
+                </td>
+            <% end %>
         </tr>
     <% end %>    
     </tbody>
