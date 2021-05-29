@@ -2,7 +2,8 @@ class Admin::UsersController < ApplicationController
   before_action :require_admin, only: [:new, :edit, :create, :destroy, :update]
   
   def index
-    @users = User.all
+    @q = User.all.ransack(params[:q])
+    @users = @q.result(distinct: true).page(params[:page]).per(5).order('kana ASC')
   end
     
   def new

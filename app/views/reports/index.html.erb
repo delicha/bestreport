@@ -2,19 +2,15 @@
 
 <%= search_form_for @q, class: 'my-4' do |f| %>
     <div class="form-group row">
-        <%= f.label :subject_cont, '教科', class: 'col-sm-2 col-form-label' %>
-        <div class="col-sm-5">
+        <%= f.label :subject_cont, '教科', class: 'col-form-label px-3' %>
+        <div>
             <%= f.search_field :subject_cont, class: 'form-control' %>
         </div>
-    </div>
-    <div class="form-group row">
-        <%= f.label :comment_cont, 'コメント', class: 'col-sm-2 col-form-label' %>
-        <div class="col-sm-5">
+        <%= f.label :comment_cont, 'コメント', class: 'col-form-label px-3' %>
+        <div>
             <%= f.search_field :comment_cont, class: 'form-control' %>
         </div>
-    </div>
-    <div class="form-group text-center">
-        <%= f.submit class: 'btn btn-outline-primary btn-lg' %>
+        <%= f.submit class: 'btn btn-outline-primary mx-3' %>
     </div>
 <% end %>
 

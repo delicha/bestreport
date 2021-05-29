@@ -1,6 +1,6 @@
 User.create!(
-    name: '山本  昇平',
-    kana: 'ヤマモト  ショウヘイ',
+    name: '山本　昇平',
+    kana: 'ヤマモト　ショウヘイ',
     email: 'ya@email.com',
     subject: '英語',
     password: 'best',
@@ -9,18 +9,18 @@ User.create!(
 )
 
 User.create!(
-    name: '川畑  歩美',
-    kana: 'カワバタ  アユミ',
+    name: '川畑　歩美',
+    kana: 'カワバタ　アユミ',
     email: 'ka@email.com',
-    subject: '英語 国語 数学',
+    subject: '英語　国語　数学',
     password: 'best',
     password_confirmation: 'best',
     admin: true
 )
 
 User.create!(
-    name: 'ピチクール  仁香',
-    kana: 'ピチクール  ニカ',
+    name: 'ピチクール　仁香',
+    kana: 'ピチクール　ニカ',
     email: 'ni@email.com',
     subject: '英語',
     password: 'best',
@@ -52,7 +52,7 @@ User.create!(
     name: '齋藤　拓夢',
     kana: 'サイトウ　タクム',
     email: 'saito@email.com',
-    subject: '英語 数学 理科',
+    subject: '英語　数学　理科',
     password: 'pass',
     password_confirmation: 'pass',
     admin: false
@@ -60,19 +60,19 @@ User.create!(
 
 User.create!(
     name: '湊　宥貴',
-    kana: 'ミナト',
+    kana: 'ミナト　ヒロキ',
     email: 'minato@email.com',
-    subject: '英語 数学',
+    subject: '英語　数学',
     password: 'pass',
     password_confirmation: 'pass',
     admin: false
 )
 
 User.create!(
-    name: '伊藤隆也',
+    name: '伊藤　隆也',
     kana: 'イトウ　リュウヤ',
     email: 'ito@email.com',
-    subject: '英語',
+    subject: '英語　数学',
     password: 'pass',
     password_confirmation: 'pass',
     admin: false
@@ -82,7 +82,7 @@ User.create!(
     name: '芦口　亜弓',
     kana: 'アシグチ　アユミ',
     email: 'ashiguchi@email.com',
-    subject: '英語 数学',
+    subject: '英語　数学',
     password: 'pass',
     password_confirmation: 'pass',
     admin: false
@@ -102,7 +102,7 @@ User.create!(
     name: '林　祐三',
     kana: 'ハヤシ　ユウゾウ',
     email: 'hayashi@email.com',
-    subject: '英語 数学',
+    subject: '英語　数学',
     password: 'pass',
     password_confirmation: 'pass',
     admin: false
@@ -112,7 +112,7 @@ User.create!(
     name: '白江　五輝',
     kana: 'シラエ　イツキ',
     email: 'shirae@email.com',
-    subject: '英語 数学',
+    subject: '英語　数学',
     password: 'pass',
     password_confirmation: 'pass',
     admin: false

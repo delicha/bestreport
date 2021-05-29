@@ -6,19 +6,15 @@
 <% end %>
 <%= search_form_for @q, class: 'mb-5' do |f| %>
     <div class="form-group row">
-        <%= f.label :kana_cont, 'カナ', class: 'col-sm-2 col-form-label' %>
-        <div class="col-sm-5">
+        <%= f.label :kana_cont, 'カナ', class: 'col-form-label  px-3' %>
+        <div>
             <%= f.search_field :kana_cont, class: 'form-control' %>
         </div>
-    </div>
-    <div class="form-group row">
-        <%= f.label :school_cont, '学校', class: 'col-sm-2 col-form-label' %>
-        <div class="col-sm-5">
+        <%= f.label :school_cont, '学校', class: 'col-form-label px-3' %>
+        <div>
             <%= f.search_field :school_cont, class: 'form-control' %>
         </div>
-    </div>
-    <div class="form-group text-center">
-        <%= f.submit class: 'btn btn-outline-primary btn-lg' %>
+        <%= f.submit class: 'btn btn-outline-primary  mx-3' %>
     </div>
 <% end %>
 
