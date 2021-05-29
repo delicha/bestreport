@@ -1,5 +1,5 @@
 class ReportMailer < ApplicationMailer
-    default from: 'ecc_bestone_iwaki@outlook.jp'
+    default from: 'ecc_bestone_iwaki@outlook.jp, iwakibestone@gmail.com'
 
     def creation_email(report)
         @report = report
