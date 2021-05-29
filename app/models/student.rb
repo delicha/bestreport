@@ -36,7 +36,7 @@ class Student < ApplicationRecord
     end
 
     def self.ransackable_attributes(auth_object = nil)
-        %w[id kana school birthdate]
+        %w[id kana school birthdate subject]
     end
 
     def self.ransackable_associations(auth_object = nil)
