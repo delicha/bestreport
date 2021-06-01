@@ -50,15 +50,15 @@
             <th class="table-success"><%= Report.human_attribute_name(:comment) %></th>
             <td colspan="3"><%= raw auto_link(simple_format(h(@report.comment), sanitize: false, wrapper_tag: "div")) %></td>
         </tr>
-        <tr>
+        <tr class="print">
             <th class="table-success"><%= Report.human_attribute_name(:other) %></th>
             <td colspan="3"><%= raw auto_link(simple_format(h(@report.other), sanitize: false, wrapper_tag: "div")) %></td>
         </tr>
-        <tr>
+        <tr class="print">
             <th class="table-success"><%= Report.human_attribute_name(:updated_at) %></th>
             <td colspan="3"><%= @report.updated_at.strftime("%Y年%m月%d日" + "(%a)" + " %H:%M")  %></td>
         </tr>
-        <tr>
+        <tr class="print">
             <th class="table-success"><%= Report.human_attribute_name(:mailsend) %></th>
             <td colspan="3"><%= @report.mailsend? ? '送信済み' : '未送信' %></td>
         </tr>

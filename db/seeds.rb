@@ -99,6 +99,16 @@ User.create!(
 )
 
 User.create!(
+    name: '引地　良偉夢',
+    kana: 'ヒキチ　ライム',
+    email: 'hikichi@email.com',
+    subject: '英語',
+    password: 'pass',
+    password_confirmation: 'pass',
+    admin: false
+)
+
+User.create!(
     name: '林　祐三',
     kana: 'ハヤシ　ユウゾウ',
     email: 'hayashi@email.com',
