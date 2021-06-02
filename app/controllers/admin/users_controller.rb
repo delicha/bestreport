@@ -1,5 +1,7 @@
 class Admin::UsersController < ApplicationController
   before_action :require_admin, only: [:new, :edit, :create, :destroy, :update]
+
+  helper_method :sort_column, :sort_direction
   
   def index
     @q = User.all.ransack(params[:q])

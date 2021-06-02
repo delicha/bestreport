@@ -2,7 +2,7 @@
 
 <%= search_form_for @q, class: 'my-4' do |f| %>
     <div class="form-group row">
-        <div class="col-md-5 row">
+        <div class="col-sm-5 row">
             <div>
                 <%= f.label :subject_cont, '教　　科', class: 'col-form-label px-3' %>
             </div>
@@ -10,7 +10,7 @@
                 <%= f.search_field :subject_cont, class: 'form-control' %>
             </div>
         </div>
-        <div class="col-md-5 row">
+        <div class="col-sm-5 row">
             <div>
                 <%= f.label :comment_cont, 'コメント', class: 'col-form-label px-3' %>
             </div>
@@ -18,7 +18,7 @@
                 <%= f.search_field :comment_cont, class: 'form-control' %>
             </div>
         </div>
-        <div class="col-md-2">
+        <div class="col-sm-2">
             <div>
                 <%= f.submit class: 'btn btn-outline-primary mx-3' %>
             </div>
@@ -38,7 +38,7 @@
             <th><%= Student.human_attribute_name(:name) %></th>
             <th><%= User.human_attribute_name(:name) %></th>
             <th><%= sort_link(@q, :subject) %></th>
-            <th><%= Report.human_attribute_name(:performance) %></th>
+            <th><%= sort_link(@q, :performance) %></th>
             <th><%= sort_link(@q, :created_at) %></th>
             <th>送信</th>
             <th>操作</th>
