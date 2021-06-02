@@ -35,7 +35,7 @@ ja:
       user:
         id: ID
         name: 講師
-        kana: カナ
+        kana: かな
         email: メール
         subject: 教科
         admin: 権限
