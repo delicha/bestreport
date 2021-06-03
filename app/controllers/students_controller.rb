@@ -4,7 +4,7 @@ class StudentsController < ApplicationController
 
   def index
     @q = Student.all.ransack(params[:q])
-    @students = @q.result(distinct: true).page(params[:page]).per(50).order('kana ASC')
+    @students = @q.result(distinct: true).page(params[:page]).per(5).order('kana ASC')
 
     respond_to do |format|
       format.html
