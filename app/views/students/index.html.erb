@@ -82,6 +82,9 @@
                 <td class="d-fl">
                     <%= link_to "詳細", student_path(student), class: "btn btn-primary" %>
                     <%= link_to "編集", edit_student_path(student), class: "btn btn-secondary" %>
+                    <% if current_user.id == 1 %>
+                        <%= link_to "削除", student, method: :delete, data: { confirm: "生徒「#{student.name}」を削除します。よろしいですか？"}, class: "btn btn-danger" %>
+                    <% end %> 
                 </td>
             <% end %> 
         </tr>
