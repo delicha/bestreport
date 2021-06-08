@@ -38,5 +38,11 @@ group :test do
   gem 'webdrivers'
 end
 
+group :development, :test do
+  gem 'pry-rails'
+  gem 'pry-byebug'
+  gem 'bullet'
+end
+
 group :production do
 end

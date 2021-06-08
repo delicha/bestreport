@@ -4,9 +4,9 @@ class ReportsController < ApplicationController
 
   def index
     if current_user.admin
-      @q = Report.all.ransack(params[:q])
+      @q = Report.includes([:student, :user]).ransack(params[:q])
     else
-      @q = current_user.reports.all.ransack(params[:q])
+      @q = current_user.reports.includes([:student]).ransack(params[:q])
     end
     @reports = @q.result(distinct: true).page(params[:page]).per(5).order(id: :DESC)
 
