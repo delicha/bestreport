@@ -17,8 +17,8 @@ class Admin::UsersController < ApplicationController
   end
 
   def show
-    # @user = User.find(params[:id])
-    @reports = current_user.reports.page(params[:page]).per(5).order('created_at DESC')
+    @user = User.find(params[:id])
+    @reports = @user.reports.page(params[:page]).per(5).order('created_at DESC')
   end
 
   def create
