@@ -10,8 +10,9 @@ class Student < ApplicationRecord
     validates :birthdate, presence: true, length: { maximum: 20 }
 
     has_many :reports, dependent: :destroy
+    has_many :users, through: :reports
 
-    default_scope -> {order(created_at: :desc)}
+    # default_scope -> {order(created_at: :desc)}
 
     def self.csv_attributes
         ["id", "name", "kana", "email", "birthdate", "school", "memo", "created_at", "updated_at"]
@@ -36,10 +37,10 @@ class Student < ApplicationRecord
     end
 
     def self.ransackable_attributes(auth_object = nil)
-        %w[id kana school birthdate subject]
+        %w[id kana name school birthdate subject]
     end
 
-    # def self.ransackable_associations(auth_object = nil)
-    #     []
-    # end
+    def self.ransackable_associations(auth_object = nil)
+        []
+    end
 end

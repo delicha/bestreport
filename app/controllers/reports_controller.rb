@@ -6,7 +6,7 @@ class ReportsController < ApplicationController
     if current_user.admin
       @q = Report.includes([:student, :user]).ransack(params[:q])
     else
-      @q = current_user.reports.includes([:student]).ransack(params[:q])
+      @q = current_user.reports.includes(:student).ransack(params[:q])
     end
     @reports = @q.result(distinct: true).page(params[:page]).per(5).order(id: :DESC)
 

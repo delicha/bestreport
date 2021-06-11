@@ -10,13 +10,14 @@ class User < ApplicationRecord
 
     has_secure_password
     has_many :reports, dependent: :destroy
+    has_many :students, through: :reports
 
     def self.ransackable_attributes(auth_object = nil)
         %w[name subject created_at]
     end
 
-    # def self.ransackable_associations(auth_object = nil)
-    #     []
-    # end
+    def self.ransackable_associations(auth_object = nil)
+        []
+    end
 
 end

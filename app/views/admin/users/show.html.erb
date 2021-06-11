@@ -5,56 +5,56 @@
         <tbody>
             <tr>
                 <th class="table-danger"><%= User.human_attribute_name(:id) %></th>
-                <td><%= @user.id %></td>
+                <td><%= current_user.id %></td>
             </tr>
             <tr>
                 <th class="table-danger"><%= User.human_attribute_name(:name) %></th>
-                <td><%= @user.name %></td>
+                <td><%= current_user.name %></td>
             </tr>
             <tr>
                 <th class="table-danger"><%= User.human_attribute_name(:kana) %></th>
-                <td><%= @user.kana %></td>
+                <td><%= current_user.kana %></td>
             </tr>
             <tr>
                 <th class="table-danger"><%= User.human_attribute_name(:email) %></th>
-                <td><%= @user.email %></td>
+                <td><%= current_user.email %></td>
             </tr>
             <tr>
                 <th class="table-danger"><%= User.human_attribute_name(:subject) %></th>
-                <td><%= @user.subject %></td>
+                <td><%= current_user.subject %></td>
             </tr>
             <tr>
                 <th class="table-danger"><%= User.human_attribute_name(:admin) %></th>
-                <td><%= @user.admin? ? 'あり' : 'なし' %></td>
+                <td><%= current_user.admin? ? 'あり' : 'なし' %></td>
             </tr>
             <tr>
                 <th class="table-danger"><%= User.human_attribute_name(:created_at) %></th>
-                <td><%= @user.created_at.strftime("%Y年%m月%d日 %H:%M") %></td>
+                <td><%= current_user.created_at.strftime("%Y年%m月%d日 %H:%M") %></td>
             </tr>
             <tr>
                 <th class="table-danger"><%= User.human_attribute_name(:updated_at) %></th>
-                <td><%= @user.updated_at.strftime("%Y年%m月%d日 %H:%M") %></td>
+                <td><%= current_user.updated_at.strftime("%Y年%m月%d日 %H:%M") %></td>
             </tr>
         </tbody>
     </table>
     <div class="text-center">
         <%= link_to "編集", edit_admin_user_path, class: "btn btn-primary mx-3" %>
-        <%= link_to "削除", [:admin, @user], method: :delete, data: { confirm: "講師「#{@user.id}先生」を削除します。よろしいですか？"}, class: "btn btn-danger" %>
+        <%= link_to "削除", [:admin, current_user], method: :delete, data: { confirm: "講師「#{current_user.id}先生」を削除します。よろしいですか？"}, class: "btn btn-danger" %>
     </div>
 <% else %>
     <table class="table table-hover table-bordered shadow-sm my-3">
         <tbody>
             <tr>
                 <th class="table-danger"><%= User.human_attribute_name(:name) %></th>
-                <td><%= @user.name %></td>
+                <td><%= current_user.name %></td>
             </tr>
             <tr>
                 <th class="table-danger"><%= User.human_attribute_name(:kana) %></th>
-                <td><%= @user.kana %></td>
+                <td><%= current_user.kana %></td>
             </tr>
             <tr>
                 <th class="table-danger"><%= User.human_attribute_name(:subject) %></th>
-                <td><%= @user.subject %></td>
+                <td><%= current_user.subject %></td>
             </tr>
         </tbody>
     </table>
@@ -78,7 +78,7 @@
         </tr>
     </thead>
     <tbody>
-    <% @user.reports.each do |report| %>
+    <% current_user.reports.each do |report| %>
         <tr id="report-#{report.id}">
             <td><%= report.id %></td>
             <td><%= link_to report.student.name, student_path(report.student_id) %></td>

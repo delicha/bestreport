@@ -3,7 +3,7 @@ class StudentsController < ApplicationController
   before_action :cal_birth, only: [:show]
 
   def index
-    @q = Student.all.ransack(params[:q])
+    @q = Student.ransack(params[:q])
     @students = @q.result(distinct: true).page(params[:page]).per(5).order('kana ASC')
 
     respond_to do |format|
