@@ -36,7 +36,7 @@ class Report < ApplicationRecord
         %w[id subject performance comment created_at student_kana]
     end
 
-    def self.ransackable_associations(auth_object = nil)
-        []
-    end
+    # def self.ransackable_associations(auth_object = nil)
+    #     []
+    # end
 end
