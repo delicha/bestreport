@@ -33,7 +33,7 @@ class Report < ApplicationRecord
     end
 
     def self.ransackable_attributes(auth_object = nil)
-        %w[id subject performance comment created_at]
+        %w[id subject performance comment created_at student_kana]
     end
 
     def self.ransackable_associations(auth_object = nil)
