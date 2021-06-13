@@ -55,7 +55,7 @@ class ReportsController < ApplicationController
   end
 
   def unsent
-    @q = Report.all.where(mailsend: false).all.ransack(params[:q])
+    @q = Report.where(mailsend: false).includes([:student, :user]).ransack(params[:q])
     @reports = @q.result(distinct: true).page(params[:page]).per(5).order(id: :DESC)
   end
 

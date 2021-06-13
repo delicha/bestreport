@@ -7,10 +7,7 @@
 <%= search_form_for @q, class: 'mb-5' do |f| %>
     <div class="form-group row">
         <div>
-            <%= f.label :kana_or_school_cont, '「かな」or「学校」', class: 'col-form-label  px-3' %>
-        </div>
-        <div>
-            <%= f.search_field :kana_or_school_cont, class: 'form-control' %>
+            <%= f.search_field :kana_or_school_cont, placeholder: '「生徒なまえ」or「学校」', class: 'form-control' %>
         </div>
         <div>
             <%= f.submit class: 'btn btn-outline-primary  mx-3' %>

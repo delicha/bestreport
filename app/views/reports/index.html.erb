@@ -2,14 +2,14 @@
 
 <%= search_form_for @q, class: 'my-4' do |f| %>
     <div class="form-group row">
-        <div>
-            <%= f.label :subject_or_comment_or_student_kana_cont, '「生徒なまえ」or「教科」or「コメント」', class: 'col-form-label px-3' %>
+        <div class="ml-3">
+            <%= f.search_field :student_kana_cont, placeholder: '生徒なまえ', class: 'form-control' %>
         </div>
-        <div>
-            <%= f.search_field :subject_or_comment_or_student_kana_cont, class: 'form-control' %>
+        <div class="ml-3">
+            <%= f.search_field :subject_cont, placeholder: '教科',  class: 'form-control' %>
         </div>
-        <div>
-            <%= f.submit class: 'btn btn-outline-primary mx-3' %>
+        <div class="ml-3">
+            <%= f.submit class: 'btn btn-outline-primary' %>
         </div>
     </div>
 <% end %>
