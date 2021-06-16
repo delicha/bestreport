@@ -5,7 +5,7 @@ class Admin::UsersController < ApplicationController
   
   def index
     @q = User.ransack(params[:q])
-    @users = @q.result(distinct: true).page(params[:page]).per(5).order('kana ASC')
+    @users = @q.result(distinct: true).page(params[:page]).per(100).order('kana ASC')
 
     respond_to do |format|
       format.html

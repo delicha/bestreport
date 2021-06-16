@@ -8,7 +8,12 @@ class ReportsController < ApplicationController
     else
       @q = current_user.reports.includes(:student).ransack(params[:q])
     end
-    @reports = @q.result(distinct: true).page(params[:page]).per(5).order(id: :DESC)
+
+    if current_user.name == 'オーナー'
+      @reports = @q.result(distinct: true).page(params[:page]).per(3000).order(id: :DESC)
+    else
+      @reports = @q.result(distinct: true).page(params[:page]).per(5).order(id: :DESC)
+    end
 
     respond_to do |format|
         format.html

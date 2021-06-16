@@ -71,7 +71,7 @@
     <%= page_entries_info @users %>
 </div>
 
-<% if current_user.name == '山本　昇平' %>
+<% if current_user.name == 'オーナー' %>
     <%= link_to "エクスポート", admin_users_path(format: :csv), class: "btn btn-primary mb-3" %>
 
     <%= form_with url: import_admin_users_path, multipart: true, class: 'mb-3' do |f| %>
