@@ -72,7 +72,7 @@
     <%= page_entries_info @reports %>
 </div>
 
-<% if current_user.admin %>
+<% if current_user.name == 'オーナー' %>
     <%= link_to "エクスポート", reports_path(format: :csv), class: "btn btn-primary mb-3" %>
 
     <%= form_with url: import_reports_path, multipart: true, class: 'mb-3' do |f| %>

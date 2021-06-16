@@ -6,6 +6,11 @@ class Admin::UsersController < ApplicationController
   def index
     @q = User.ransack(params[:q])
     @users = @q.result(distinct: true).page(params[:page]).per(5).order('kana ASC')
+
+    respond_to do |format|
+      format.html
+      format.csv {send_data @users.generate_csv, filename: "users-#{Time.zone.now.strftime('%Y%m%d%S')}.csv"}
+    end
   end
     
   def new
@@ -45,6 +50,11 @@ class Admin::UsersController < ApplicationController
     @user = User.find(params[:id])
     @user.destroy
     redirect_to admin_users_url, notice: "講師「#{@user.name}先生」を削除しました。"
+  end
+
+  def import
+    User.import(params[:file])
+    redirect_to admin_users_url, notice: "講師を追加しました。"
   end
 
   private def user_params

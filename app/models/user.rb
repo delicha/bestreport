@@ -12,6 +12,28 @@ class User < ApplicationRecord
     has_many :reports, dependent: :destroy
     has_many :students, through: :reports
 
+    def self.csv_attributes
+        ["id", "name", "kana", "email", "password_digest", "subject", "admin", "created_at", "updated_at"]
+    end
+
+    def self.generate_csv
+        bom = "\uFEFF"
+        CSV.generate(bom, headers: true) do |csv|
+            csv << csv_attributes
+            all.each do |user|
+            csv << csv_attributes.map{|attr| user.send(attr)}
+            end
+        end
+    end
+
+    def self.import(file)
+        CSV.foreach(file.path, headers: true) do |row|
+            user = User.new
+            user.attributes = row.to_hash.slice(*csv_attributes)
+            user.save!(validate: false)
+        end
+    end
+
     def self.ransackable_attributes(auth_object = nil)
         %w[name kana subject created_at]
     end
