@@ -13,7 +13,7 @@ class User < ApplicationRecord
     has_many :students, through: :reports
 
     def self.ransackable_attributes(auth_object = nil)
-        %w[name subject created_at]
+        %w[name kana subject created_at]
     end
 
     # def self.ransackable_associations(auth_object = nil)

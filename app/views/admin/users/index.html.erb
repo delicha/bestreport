@@ -6,6 +6,18 @@
     </div>
 <% end %>
 
+<%= search_form_for @q, url: admin_users_path, class: 'mb-5' do |f| %>
+    <div class="form-group row">
+        <div>
+            <%= f.search_field :kana_or_subject_cont, placeholder: '「なまえ」or「教科」', class: 'form-control' %>
+        </div>
+        <div>
+            <%= f.submit class: 'btn btn-outline-primary  mx-3' %>
+        </div>
+        
+    </div>
+<% end %>
+
 <div class="my-3">
     <%= paginate @users %>
     <%= page_entries_info @users %>

@@ -4,7 +4,7 @@ class Admin::UsersController < ApplicationController
   helper_method :sort_column, :sort_direction
   
   def index
-    @q = User.all.ransack(params[:q])
+    @q = User.ransack(params[:q])
     @users = @q.result(distinct: true).page(params[:page]).per(5).order('kana ASC')
   end
     
