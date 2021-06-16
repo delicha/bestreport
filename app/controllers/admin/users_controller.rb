@@ -4,7 +4,11 @@ class Admin::UsersController < ApplicationController
   helper_method :sort_column, :sort_direction
   
   def index
-    @q = User.ransack(params[:q])
+    if current_user.admin
+      @q = User.ransack(params[:q])
+    else
+      @q = User.where(admin: false).ransack(params[:q])
+    end
     @users = @q.result(distinct: true).page(params[:page]).per(100).order('kana ASC')
 
     respond_to do |format|
