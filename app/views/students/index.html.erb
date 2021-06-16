@@ -4,12 +4,12 @@
         <%= link_to "生徒を新しく作成", new_student_path, class: "btn btn-warning font-weight-bold my-3 mx-3 btn-lg shadow" %>
     </div>
 <% end %>
-<%= search_form_for @q, class: 'mb-5' do |f| %>
+<%= search_form_for @q, class: 'my-4' do |f| %>
     <div class="form-group row">
-        <div>
+        <div class="ml-3">
             <%= f.search_field :kana_or_school_cont, placeholder: '「生徒なまえ」or「学校」', class: 'form-control' %>
         </div>
-        <div>
+        <div class="ml-3">
             <%= f.submit class: 'btn btn-outline-primary  mx-3' %>
         </div>
         

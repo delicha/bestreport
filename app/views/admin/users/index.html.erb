@@ -6,12 +6,12 @@
     </div>
 <% end %>
 
-<%= search_form_for @q, url: admin_users_path, class: 'mb-5' do |f| %>
+<%= search_form_for @q, url: admin_users_path, class: 'my-4' do |f| %>
     <div class="form-group row">
-        <div>
+        <div class="ml-3">
             <%= f.search_field :kana_or_subject_cont, placeholder: '「なまえ」or「教科」', class: 'form-control' %>
         </div>
-        <div>
+        <div class="ml-3">
             <%= f.submit class: 'btn btn-outline-primary  mx-3' %>
         </div>
         
