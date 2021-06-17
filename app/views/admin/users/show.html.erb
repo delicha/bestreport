@@ -78,7 +78,7 @@
         </tr>
     </thead>
     <tbody>
-    <% @user.reports.each do |report| %>
+    <% @reports.includes(:student).each do |report| %>
         <tr id="report-#{report.id}">
             <td><%= report.id %></td>
             <td><%= link_to report.student.name, student_path(report.student_id) %></td>
