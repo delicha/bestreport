@@ -149,7 +149,7 @@
         </tr>
     </thead>
     <tbody>
-    <% @student.reports.each do |report| %>
+    <% @reports.includes(:user).each do |report| %>
         <tr id="report-#{report.id}">
             <td><%= report.id %></td>
             <td><%= report.subject %></td>

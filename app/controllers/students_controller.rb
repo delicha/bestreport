@@ -18,8 +18,11 @@ class StudentsController < ApplicationController
 
   def show
     @birth = cal_birth
-    @q = @student.reports.ransack(params[:q])
+    # @q = @student.reports.ransack(params[:q])
+    @q = Report.where(:user_id == @student).ransack(params[:q])
     @reports = @q.result(distinct: true).page(params[:page]).per(5).order('created_at DESC')
+    
+    
   end
 
   def new
