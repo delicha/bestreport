@@ -27,7 +27,7 @@ class Admin::UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @reports = Report.where(user_id: @user.id).page(params[:page]).per(5).order('created_at DESC')
+    @reports = Report..order('created_at DESC', 'id').where(user_id: @user.id).page(params[:page]).per(5)
   end
 
   def create
