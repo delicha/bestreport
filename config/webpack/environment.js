@@ -1,4 +1,6 @@
 const { environment } = require('@rails/webpacker')
+//追加
+environment.loaders.delete('nodeModules')
 
 // 以下追記
 const webpack = require('webpack')
