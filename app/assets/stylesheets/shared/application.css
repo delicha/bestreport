@@ -1,0 +1,110 @@
+@charset "UTF-8";
+.logo {
+  text-shadow: -1px 1px 1px rgba(0, 0, 0, 0.3);
+  letter-spacing: 0.1em;
+  font-size: 165%;
+}
+
+.logo-kana {
+  color: #fff;
+  position: absolute;
+  top: 45px;
+  left: 42px;
+  letter-spacing: 0.3em;
+}
+
+h1 {
+  font-size: 200%;
+  border-left: 3px solid #000;
+  padding-left: 10px;
+}
+
+h2 {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-top: 1px solid green;
+  border-bottom: 1px dotted green;
+  font-weight: bold;
+  letter-spacing: 0.15em;
+}
+
+nav {
+  background-color: #017f25;
+  background-position: left 180px top 10px;
+  background-repeat: no-repeat;
+  background-size: 50px 50px;
+}
+
+nav.dog {
+  background-image: image-url("dog-icon.png");
+}
+
+.container {
+  margin-top: 90px;
+  margin-bottom: 100px;
+}
+
+footer {
+  position: left bottom fixed;
+  background-color: #017f25;
+}
+
+.d-fl {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.grad-img {
+  max-width: 100%;
+  margin-top: 10px;
+  margin-bottom: 80px;
+  height: auto;
+}
+
+/*ページネーション自体のデザイン*/
+.pagination > li > a {
+  border: none;
+  /*枠線をなくす*/
+  color: #696969;
+  /*文字の色を変える*/
+}
+
+/* 表示しているページ番号のデザイン */
+.pagination > .active > a {
+  background: #93c9ff;
+  /*背景の色を変える*/
+  border-radius: 15px;
+  /*角を丸くする*/
+}
+
+/*ホバー時のデザイン*/
+.pagination > li > a:hover {
+  border-radius: 15px;
+  /*角を丸くする*/
+}
+
+@media screen and (max-width: 575px) {
+  h1 {
+    font-size: 140%;
+  }
+  h2 {
+    font-size: 120%;
+  }
+  .navbar.navbar-2 .navbar-toggler-icon {
+    background-image: url("https://mdbcdn.b-cdn.net/img/svg/hamburger2.svg?color=fff");
+  }
+}
+
+@media print {
+  header,
+  footer {
+    display: none;
+  }
+  .print {
+    display: none;
+  }
+}
+/*# sourceMappingURL=application.css.map */
