@@ -35,10 +35,6 @@ nav {
   background-size: 50px 50px;
 }
 
-nav.dog {
-  background-image: image-url("dog-icon.png");
-}
-
 .container {
   margin-top: 90px;
   margin-bottom: 100px;
