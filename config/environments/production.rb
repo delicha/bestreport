@@ -29,13 +29,13 @@ Rails.application.configure do
   # smtpの配信メソッドの詳細設定を行います。
   # SENDGRID用
   config.action_mailer.smtp_settings = {
-      address: 'smtp.sendgrid.net',
-      port: 587,
-      domain: 'heroku.com',
-      user_name: 'apikey',
-      password: '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',
-      authentication: :plain,
-      enable_starttls_auto: true
+    user_name: ENV['SENDGRID_USERNAME'],
+    password: ENV['SENDGRID_PASSWORD'],
+    domain: 'herokuapp.com',
+    address: 'smtp.sendgrid.net',
+    port: 587,
+    authentication: :plain,
+    enable_starttls_auto: true
   }
 
   # Ensures that a master key has been made available in either ENV["RAILS_MASTER_KEY"]
