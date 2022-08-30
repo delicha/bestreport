@@ -34,14 +34,14 @@
             <small class="text-danger">[<%= current_user.name %> 先生ログイン中]</small>
           </div>
           <% if flash.notice %>
-            <div class="alert alert-success px-5"><%= flash.notice %></div>
+            <div class="alert alert-success mx-5"><%= flash.notice %></div>
           <% end %>
           <%= yield %>
         </div>
       <% else %>
         <div class="top">
           <% if flash.notice %>
-            <div class="alert alert-success px-5"><%= flash.notice %></div>
+            <div class="alert alert-success mx-5"><%= flash.notice %></div>
           <% end %>
           <%= yield %>
         </div>
