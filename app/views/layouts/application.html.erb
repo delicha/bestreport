@@ -2,47 +2,46 @@
 
   <%= render "shared/header" %>
 
-  <body>
-    <div class="navbar-expand-md">
+    <body>
+      <div class="navbar-expand-md">
 
-      <nav class="navbar navbar-expand-lg navbar-dark navbar-2 fixed-top">
-        <a class="navbar-brand logo" href="/">BestReport</a><p class="logo-kana small">ベストリポート</p>
-        <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navbarSupportedContent15" aria-controls="navbarSupportedContent15" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
+        <nav class="navbar navbar-expand-lg navbar-dark navbar-2 fixed-top">
+          <a class="navbar-brand logo" href="/">BestReport</a><p class="logo-kana small">ベストリポート</p>
+          <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navbarSupportedContent15" aria-controls="navbarSupportedContent15" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
 
-        <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent15">
-          <ul class="navbar-nav ml-auto">
-            <% if current_user %>
-              <li class="nav_item"><%= link_to '報告書一覧', reports_path, class: 'nav-link' %></li>
-              <li class="nav_item"><%= link_to '生徒一覧', students_path, class: 'nav-link' %></li>
-              <li class="nav_item"><%= link_to '講師一覧', admin_users_path, class: 'nav-link' %></li>
-              <% if current_user.admin %>
-                <li class="nav_item"><%= link_to '未送信一覧', unsent_path, class: 'nav-link' %></li>
+          <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent15">
+            <ul class="navbar-nav ml-auto">
+              <% if current_user %>
+                <li class="nav_item"><%= link_to '報告書一覧', reports_path, class: 'nav-link' %></li>
+                <li class="nav_item"><%= link_to '生徒一覧', students_path, class: 'nav-link' %></li>
+                <li class="nav_item"><%= link_to '講師一覧', admin_users_path, class: 'nav-link' %></li>
+                <% if current_user.admin %>
+                  <li class="nav_item"><%= link_to '未送信一覧', unsent_path, class: 'nav-link' %></li>
+                <% end %>
+                <li class="nav_item"><%= link_to 'ログアウト', logout_path, method: :delete, class: 'nav-link' %></li>
+              <% else %>
+                <li class="nav_item"><%= link_to 'ログイン', login_path, class: 'nav-link' %></li>
               <% end %>
-              <li class="nav_item"><%= link_to 'ログアウト', logout_path, method: :delete, class: 'nav-link' %></li>
-            <% else %>
-              <li class="nav_item"><%= link_to 'ログイン', login_path, class: 'nav-link' %></li>
-            <% end %>
-          </ul>
-        </div>
-      </nav>
-      
-    </div>
+            </ul>
+          </div>
+        </nav>
+      </div>
 
-    <div class="container">
-      <% if current_user %>
-        <div class="text-right print">
-          <small class="text-danger">[<%= current_user.name %> 先生ログイン中]</small>
-        </div>
-      <% end %>
-      <% if flash.notice %>
-        <div class="alert alert-success"><%= flash.notice %></div>
-      <% end %>
-      <%= yield %>
-    </div>
+      <div class="container">
+        <% if current_user %>
+          <div class="text-right print">
+            <small class="text-danger">[<%= current_user.name %> 先生ログイン中]</small>
+          </div>
+        <% end %>
+        <% if flash.notice %>
+          <div class="alert alert-success"><%= flash.notice %></div>
+        <% end %>
+        <%= yield %>
+      </div>
 
-    <%= render "shared/footer" %>
+      <%= render "shared/footer" %>
 
-  </body>
+    </body>
 </html>

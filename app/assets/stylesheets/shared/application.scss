@@ -1,7 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat+Brush&display=swap');
+
 .logo {
     text-shadow: -1px 1px 1px rgba(0, 0, 0, 0.3);
     letter-spacing: 0.1em;
     font-size: 165%;
+    font-family: 'Caveat Brush', cursive;
 }
 
 .logo-kana {
@@ -38,6 +41,11 @@ nav {
     margin-top: 90px;
     margin-bottom: 100px;
 }
+
+// .top{
+//     background: url("image3.jpg");
+//     background-size: cover;
+// }
 
 footer {
     position: left bottom fixed;
