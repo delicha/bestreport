@@ -42,10 +42,14 @@ nav {
     margin-bottom: 100px;
 }
 
-// .top{
-//     background: url("image3.jpg");
-//     background-size: cover;
-// }
+.top {
+    height: 100%;
+    width: auto 0;
+    margin-top: 65px;
+    padding-top: 200px;
+    background: url("image2.jpg");
+    background-size: cover;
+}
 
 footer {
     position: left bottom fixed;

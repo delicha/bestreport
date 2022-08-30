@@ -28,19 +28,24 @@
           </div>
         </nav>
       </div>
-
-      <div class="container">
-        <% if current_user %>
+      <% if current_user %>
+        <div class="container">
           <div class="text-right print">
             <small class="text-danger">[<%= current_user.name %> 先生ログイン中]</small>
           </div>
-        <% end %>
-        <% if flash.notice %>
-          <div class="alert alert-success"><%= flash.notice %></div>
-        <% end %>
-        <%= yield %>
-      </div>
-
+          <% if flash.notice %>
+            <div class="alert alert-success px-5"><%= flash.notice %></div>
+          <% end %>
+          <%= yield %>
+        </div>
+      <% else %>
+        <div class="top">
+          <% if flash.notice %>
+            <div class="alert alert-success px-5"><%= flash.notice %></div>
+          <% end %>
+          <%= yield %>
+        </div>
+      <% end %>
       <%= render "shared/footer" %>
 
     </body>

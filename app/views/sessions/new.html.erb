@@ -1,27 +1,15 @@
-<h1>ログイン</h1>
+
 <% if @error_message %>
   <p class="text-danger"><%=@error_message %></p>
 <% end %>
 
-<%=form_with scope: :session, class: "mx-3 mt-4", local: true do |f| %>
-<div class="form-group d-flex row">
-  <div class="col-sm-12 col-md-3">
-    <%=f.label :email, 'メールアドレス'%>
-  </div>
-  <div class="col-sm-5 col-md-9">
-    <%=f.text_field :email, value: @email, autofocus: true, autocomplete: "email",class: "form-control",id: "session_email" %>
-  </div>
-</div>
-<div class="form-group d-flex row">
-  <div class="col-sm-12 col-md-3">
-    <%=f.label :password, 'パスワード' %>
-  </div>
-  <div class="col-sm-5 col-md-9">
-    <%=f.text_field :password, value: @password, autocomplete: "password", class: "form-control", id: "session_password" %>
-  </div>
+<%=form_with scope: :session, local: true do |f| %>
 
+<div class="form-group px-5 mx-5">
+  <%=f.text_field :email, value: @email, autofocus: true, autocomplete: "email",class: "form-control my-4",id: "session_email", placeholder: "メールアドレス" %>
+  <%=f.text_field :password, value: @password, autocomplete: "password", class: "form-control", id: "session_password", placeholder: "パスワード" %>
 </div>
-<div class="text-center mt-5">
+<div class="text-center mt-4">
   <%=f.submit 'ログインする', class: "btn btn-info btn-lg" %>
 </div>
 <% end %>
