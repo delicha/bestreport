@@ -1,5 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Caveat+Brush&display=swap');
 
+$fa-font-path: '@fortawesome/fontawesome-free/webfonts';
+@import '@fortawesome/fontawesome-free/scss/fontawesome';
+@import '@fortawesome/fontawesome-free/scss/solid';
+@import '@fortawesome/fontawesome-free/scss/regular';
+@import '@fortawesome/fontawesome-free/scss/brands';
+@import '@fortawesome/fontawesome-free/scss/v4-shims';
+
 .logo {
     text-shadow: -1px 1px 1px rgba(0, 0, 0, 0.3);
     letter-spacing: 0.1em;
