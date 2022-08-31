@@ -114,7 +114,7 @@ footer {
     -moz-osx-font-smoothing: grayscale;
 }
 
-@media screen and (max-width:575px) {
+@media screen and (max-width:580px) {
 
     h1 {
         font-size: 140%;
@@ -128,6 +128,41 @@ footer {
         background-image: url('https://mdbcdn.b-cdn.net/img/svg/hamburger2.svg?color=fff');
     }
 }
+
+@media screen and (max-width: 414px) {
+
+    .logo-main-visual {
+        font-size: 100px;
+        padding-bottom: 20px;
+    }
+
+    nav {
+        width: 414px;
+        margin: 0;
+        padding: 0;
+    }
+
+    .pagination {
+        width: 400px;
+
+        ul {
+            flex-wrap: wrap;
+        }
+
+        li {
+            padding-left: 10px;
+        }
+    }
+
+    .navbar {
+        width: 414px;
+
+        li.nav_item {
+            padding-left: 15px;
+        }
+    }
+}
+
 
 @media print {
 

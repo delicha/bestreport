@@ -6,8 +6,8 @@
 <%=form_with scope: :session, local: true do |f| %>
 
 <div class="form-group px-5 mx-5">
-  <%=f.text_field :email, value: @email, autofocus: true, autocomplete: "email",class: "form-control my-4 use_icon",id: "session_email", placeholder: "&#xf0e0; メールアドレス" %>
-  <%=f.text_field :password, value: @password, autocomplete: "password", class: "form-control use_icon", id: "session_password", placeholder: "&#xf084; パスワード" %>
+  <%=f.text_field :email, value: @email, autofocus: true, autocomplete: "email",class: "form-control my-4 use_icon",id: "session_email", placeholder: " メールアドレス" %>
+  <%=f.text_field :password, value: @password, autocomplete: "password", class: "form-control use_icon", id: "session_password", placeholder: " パスワード" %>
 </div>
 <div class="text-center mt-4">
   <%=f.submit 'ログインする', class: 'btn btn-info btn-lg' do %>
